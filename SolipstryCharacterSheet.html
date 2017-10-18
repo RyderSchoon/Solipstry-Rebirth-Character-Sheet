@@ -1,0 +1,2760 @@
+	<p style="text-align: center;">
+		<img src="https://i.imgur.com/hL3gl9B.png" style="max-height: 300px;" />
+    </p>
+
+<!--Background information-->
+<h3>Background</h3>    
+<div class='sheet-3colrow'>
+    <div class='sheet-col'>
+        <div class="sheet-left-attr">
+             <label class="sheet-inline" name="attr_char_name_label">Name</label>
+        </div>
+        <div class="sheet-right-attr">
+            <input class="sheet-inline" type="text" name ="attr_char_name" style="width:150px" />
+        </div>
+        <div class="sheet-left-attr" style="margin-top:10px">
+        	<label class="sheet-inline" name="attr_char_age_label">Age</label>
+        </div>
+        <div class="sheet-right-attr">
+        	<input class="sheet-inline" type="number" name ="attr_char_age" style="width:150px" />
+        </div>
+        <div class="sheet-left-attr" style="margin-top:10px">
+        	<label class="sheet-inline" name="attr_char_height_label">Height</label>
+        </div>
+        <div class="sheet-right-attr">
+        	<input class="sheet-inline" type="text" name ="attr_char_height" style="width:150px" />
+        </div>
+        <div class="sheet-left-attr" style="margin-top:10px">
+        	<label class="sheet-inline" name="attr_char_weight_label">Weight</label>
+        </div>
+        <div class="sheet-right-attr">
+        	<input class="sheet-inline" type="text" name ="attr_char_weight" style="width:150px" />
+        </div>
+    </div>
+    <div class='sheet-col'>
+        <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_char_class_label">Class</label>
+        </div>
+        <div class="sheet-right-attr">
+            <input class="sheet-inline" type="text" name ="attr_char_class" style="width:150px" />
+        </div>
+        <div class="sheet-left-attr" style="margin-top:10px">
+        	<label class="sheet-inline" name="attr_char_aspiration_label">Aspiration</label>
+        </div>
+        <div class="sheet-right-attr">
+        	<input class="sheet-inline" type="text" name ="attr_char_aspiration" style="width:150px" />
+        </div>
+        <div class="sheet-left-attr" style="margin-top:10px">
+        	<label class="sheet-inline" name="attr_char_occupation_label">Occupation</label>
+        </div>
+        <div class="sheet-right-attr">
+        	<input class="sheet-inline" type="text" name ="attr_char_occupation" style="width:150px" />
+        </div>
+        <div class="sheet-left-attr" style="margin-top:10px">
+        	<label class="sheet-inline" name="attr_char_background_label">Background</label>
+        </div>
+        <div class="sheet-right-attr">
+        	<input class="sheet-inline" type="text" name ="attr_char_background" style="width:150px" />
+        </div>
+    </div>
+    <div class='sheet-col'>
+        <!--Third column-->
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="margin-top:0px">
+            	<label class="sheet-inline" name="attr_char_race_label" style="margin-top:5px">Race</label>
+            </div>
+            <div class="sheet-right-attr" style="position:relative;">
+            	<input class="sheet-inline" type="text" name ="attr_race_name" style="width:100px;" />
+            	</select>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="margin-top:0px">
+            	<label class="sheet-inline" name="attr_char_race_label" style="margin-top:5px">Size</label>
+            </div>
+            <div class="sheet-right-attr" style="position:relative;">
+            	<select name="attr_race_size" style="width:100px;">
+            	    <option value="small">Small</option>
+            	    <option selected value="medium">Medium</option>
+            	    <option value="large">Large</option>
+            	</select>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+             <div class="sheet-left-attr" style="margin-top:0px">
+            	<label class="sheet-inline" name="attr_char_race_label">Level</label>
+            </div>
+            <div class="sheet-right-attr" style="">
+            	<input class="sheet-inline" type="number" name ="attr_big_tallies" value="0" style="width:100px;" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Attributes section-->
+<h3>Attributes</h3>
+<div class='sheet-3colrow'>
+    <!-- first column -->
+    <div class='sheet-col'>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr"></div>
+            <div class="sheet-right-attr">
+                <!--Attribute names-->
+               <b>Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mod&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roll</b>
+            </div>
+        <!--Begin attributes-->
+        </div>
+
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_chaname">Charisma</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" value="20" type="number" name ="attr_Charisma"/>
+                <input class="sheet-inline" type="hidden" name="attr_chaMod" value="2"  style="margin-left:5px"/>
+				<input class="sheet-inline" type="number" name="attr_chaMod_actual" disabled="true" value="@{chaMod}" style="margin-left:5px"/>
+				<button type="roll" name="roll_charisma_Check" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Charisma}} {{subheader=@{char_name}}} {{target=[[@{Charisma}]]}} {{roll=[[d100]]}} {{success=[[1d100<{target}]]}} {{subheaderright=Attribute}} {{save=1}} {{simple=1}} {{emote=*-bats eyes*}}"></button>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_conname">Constitution</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" value="20" type="number" name ="attr_Constitution"/>
+                <input class="sheet-inline" type="hidden" name="attr_conmod" value="2"  style="margin-left:5px"/>
+				<input class="sheet-inline" type="number" name="attr_conmod_actual" disabled="true" value="@{conmod}" style="margin-left:5px"/>
+                <button type="roll" name="roll_constitution_Check" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Constitution}} {{subheader=@{char_name}}} {{target=[[@{Constitution}]]}} {{roll=[[d100]]}} {{success=[[1d100<{target}]]}} {{subheaderright=Attribute}} {{save=1}} {{simple=1}} {{emote=*I can do this all day*}}"></button>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_dexname">Dexterity</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" value="20" type="number" name ="attr_Dexterity"/>
+                <input class="sheet-inline" type="hidden" name="attr_dexmod" value="2"  style="margin-left:5px"/>
+				<input class="sheet-inline" type="number" name="attr_dexmod_actual" disabled="true" value="@{dexmod}" style="margin-left:5px"/>
+                <button type="roll" name="roll_dexterity_Check" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Dexterity}} {{subheader=@{char_name}}} {{target=[[@{dexterity}]]}} {{roll=[[d100]]}} {{success=[[1d100<{target}]]}} {{subheaderright=Attribute}} {{save=1}} {{simple=1}} {{emote=*You ever heard of flips?*}}"></button>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_intname">Intelligence</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" value="20" type="number" name ="attr_Intelligence"/>
+                <input class="sheet-inline" type="hidden" name="attr_IntMod" value="2"  style="margin-left:5px"/>
+				<input class="sheet-inline" type="number" name="attr_IntMod_actual" disabled="true" value="@{IntMod}" style="margin-left:5px"/>
+                <button type="roll" name="roll_intelligence_Check" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Intelligence}} {{subheader=@{char_name}}} {{target=[[@{Intelligence}]]}} {{roll=[[d100]]}} {{success=[[1d100<{target}]]}} {{subheaderright=Attribute}} {{save=1}} {{simple=1}} {{emote=*According to my calculations...*}}"></button>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_lckname">Luck</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" value="20" type="number" name ="attr_Luck"/>
+                <input class="sheet-inline" type="hidden" name="attr_lckMod" value="2"  style="margin-left:5px"/>
+				<input class="sheet-inline" type="number" name="attr_lckMod_actual" disabled="true" value="@{lckMod}" style="margin-left:5px"/>
+				<button type="roll" name="roll_luck_Check" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Luck}} {{subheader=@{char_name}}} {{target=[[@{Luck}]]}} {{roll=[[d100]]}} {{success=[[1d100<{target}]]}} {{subheaderright=Attribute}} {{save=1}} {{simple=1}} {{emote=Roll the Dice}}"></button>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_spdname">Speed</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" value="20" type="number" name ="attr_Speed"/>
+                <input class="sheet-inline" type="hidden" name="attr_spdmod" value="2"  style="margin-left:5px"/>
+				<input class="sheet-inline" type="number" name="attr_spdmod_actual" disabled="true" value="@{spdmod}" style="margin-left:5px"/>
+				<button type="roll" name="roll_speed_Check" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Speed}} {{subheader=@{char_name}}} {{target=[[@{Speed}]]}} {{roll=[[d100]]}} {{success=[[1d100<{target}]]}} {{subheaderright=Attribute}} {{save=1}} {{simple=1}} {{emote=*Gotta go fast!*}}"></button>
+            </div>
+        </div>
+		<div class="sheet-row-attr">  
+			<div class="sheet-left-attr">
+				<label class="sheet-inline" name="attr_strname">Strength</label>
+			</div>
+			<div class="sheet-right-attr">
+				<input class="sheet-inline" type="number" name ="attr_Strength" style="width:50px" value="20" />
+				<input class="sheet-inline" type="hidden" name="attr_strmod" value="2" style="margin-left:5px"/>
+				<input class="sheet-inline" type="number" name="attr_strmod_actual" disabled="true" value="@{strmod}" style="margin-left:5px"/>
+				<button type="roll" name="roll_strength_Check" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Strength}} {{subheader=@{char_name}}} {{target=[[@{Strength}]]}} {{roll=[[d100]]}} {{success=[[1d100<{target}]]}} {{subheaderright=Attribute}} {{save=1}} {{simple=1}} {{emote=*Flexes*}}"></button>
+			</div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_wisname">Wisdom</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" value="20" type="number" name ="attr_Wisdom"/>
+                <input class="sheet-inline" type="hidden" name="attr_WisMod" value="2"  style="margin-left:5px"/>
+				<input class="sheet-inline" type="number" name="attr_WisMod_actual" disabled="true" value="@{WisMod}" style="margin-left:5px"/>
+				<button type="roll" name="roll_wisdom_Check" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Wisdom}} {{subheader=@{char_name}}} {{target=[[@{Wisdom}]]}} {{roll=[[d100]]}} {{success=[[1d100<{target}]]}} {{subheaderright=Attribute}} {{save=1}} {{simple=1}} {{emote=*You know what they say about curiosity...*}}"></button>
+            </div>
+        </div>
+        <!--Bonus attribute-->
+        <div class="sheet-row-attr">
+            <fieldset class="repeating_attribute">
+             <div class="sheet-row-attr">
+                <div class="sheet-left-attr">
+                    <input type="text" class="sheet-inline" style="width:100px" name="attr_custom_att_name"></label>
+                </div>
+                <div class="sheet-right-attr">
+                    <input class="sheet-inline" style="width:50px" type="number" name ="attr_custom_att_score"/>
+                    <input class="sheet-inline" type="hidden" name="attr_custom_att_mod"  style="margin-left:5px"/>
+                    <input class="sheet-inline" type="number" name="attr_custom_att_mod_actual" disabled="true" value="@{custom_att_mod}" style="margin-left:5px"/>
+    				<button type="roll" name="roll_cust_attr_Check" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=@{custom_att_name}}} {{subheader=@{char_name}}} {{target=[[@{custom_att_score}]]}} {{roll=[[d100]]}} {{success=[[1d100<{target}]]}} {{subheaderright=Attribute}} {{save=1}} {{simple=1}}"></button>
+                </div>
+             </div>
+            </fieldset>
+		</div>
+    </div>
+    <!-- Second column -->
+    <div class='sheet-col' style="margin-left:-35px; width:290px">
+		<div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+			</div>
+            <div class="sheet-right-attr">
+                <!--Attribute names-->
+               <b>Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Misc</b>
+            </div>
+        </div>
+        <!-- Begin Derived Attributes -->
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="width:100px">
+                <label class="sheet-inline" style="font-size:14px;margin-right:10px;" name="attr_healthname">Hit Points</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px;" type="number" name="attr_HP"/> 
+                 <p class="sheet-big" style="width:10px;">/</p>
+                <input class="sheet-inline" name="attr_HP_max" style="width:50px" readonly/>
+                <input class="sheet-inline" type="number" name="attr_hp_misc" value="0" style="margin-left:5px" title="Miscellaneous hit points"/>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="width:100px">
+                <label class="sheet-inline" style="font-size:14px;" name="attr_abilityname">Ability Points</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" type="number" name ="attr_Abil"/> 
+                 <p class="sheet-big">/</p>
+                <input class="sheet-inline" name="attr_abil_max" style="width:50px" readonly/>
+                <input class="sheet-inline" type="number" name="attr_abil_misc" value="0" style="margin-left:5px" title="Miscellaneous ability points"/>
+            </div>
+        </div>
+        <div class="sheet-row-attr" style="position:relative;">
+            <div class="sheet-left-attr" style="width:100px">
+                <label class="sheet-inline" style="font-size:14px;" name="attr_abil_regen_name">Regen: </label>
+            </div>
+			<div class="sheet-right-attr">
+                <input class="sheet-inline" type="hidden" name="attr_abil_regen" style="width:50px"/>
+                <input class="sheet-inline" type="number" name="attr_abil_regen_actual" disabled="true" value="@{abil_regen}" style="width:50px"/>
+                <input class="sheet-inline" type="number" name="attr_abil_regen_misc" value="0" style="margin-left:70px" title="Miscellaneous regen points"/>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="width:100px">
+                <label class="sheet-inline" style="font-size:11px; top:-5px" name="attr_enlightenment_name">Enlightenment Points</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" type="number" name ="attr_enlightenment_points"/> 
+                 <p class="sheet-big">/</p>
+                <input class="sheet-inline" name="attr_enlightenment_points_max" style="width:50px" readonly/>
+                <input class="sheet-inline" type="number" name="attr_abil_enlightenment_misc" value="0" style="margin-left:5px" title="Miscellaneous enlightenment points"/>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="width:100px">
+                <label class="sheet-inline" style="font-size:14px;" name="attr_style_name">Style Points</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input class="sheet-inline" style="width:50px" value="@{style_max}" type="number" name ="attr_style"/> 
+                 <p class="sheet-big">/</p>
+                <input class="sheet-inline" name="attr_style_max" style="width:50px" readonly/>
+                <input class="sheet-inline" type="number" name="attr_style_misc" value="0" style="margin-left:5px" title="Miscellaneous Style points"/>
+            </div>
+        </div>
+        <div class="sheet-row-attr" style="position:relative;">
+            <div class="sheet-left-attr" style="width:100px">
+                <label class="sheet-inline" style="font-size:14px;" name="attr_movement_name">Movement: </label>
+            </div>
+			<div class="sheet-right-attr">
+                <input class="sheet-inline" type="hidden" name="attr_movement" style="width:50px"/>
+                <input class="sheet-inline" type="number" name="attr_movement_actual" disabled="true" value="@{movement}" style="width:50px"/>
+                <input class="sheet-inline" type="number" name="attr_movement_misc" style="margin-left:70px" value="0" title="Miscellaneous movement bonuses"/>
+            </div>
+        </div>
+        <div class="sheet-row-attr" style="position:relative;width:269.12px">
+            <div class="sheet-left-attr" style="width:100px">
+                <label class="sheet-inline" style="font-size:14px;" name="attr_init-name">Initiative </label>
+				<button type="roll" name="roll_unarmed_combat_attack" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Initiative}} {{subheader=@{char_name}}} {{roll=[[1d20+@{init}]]}}{{emote=*PREPARE FOR BATTLE!*}}"></button>
+            </div>
+			<div class="sheet-right-attr">
+				<input class="sheet-inline" type="hidden" name="attr_init" style="width:50px"/>
+				<input class="sheet-inline" type="number" name="attr_init_actual" disabled="true" value="@{init_misc}+@{spdmod}" style="width:50px"/>
+				<input class="sheet-inline" type="number" name="attr_init_misc" style="margin-left:70px" value="0" title="Miscellaneous initiative bonuses"/>
+			</div>
+		</div>
+        <div class="sheet-row-attr" style="position:relative;">
+            <div class="sheet-left-attr" style="width:100px">
+                <label class="sheet-inline" style="font-size:14px;" name="attr_carry_weight-name">Carry Weight</label>
+            </div>
+			<div class="sheet-right-attr">
+                <input class="sheet-inline" type="hidden" name="attr_carry_weight" value="0" style="width:50px"/>
+                <input class="sheet-inline" type="number" name="attr_carry_weight_actual" disabled="true" value="@{carry_weight}" style="width:50px"/>
+                 <p class="sheet-big">/</p>
+                <input class="sheet-inline" name="attr_carry_weight_max" style="width:50px" readonly/>
+                <!-- <input class="sheet-inline" type="number" name="attr_carry_weight_max_actual" disabled="true" value="@{carry_weight_max}" style="width:50px"/>-->
+                <input class="sheet-inline" type="number" name="attr_carry_weight_misc" style="margin-left:5px" value="0" title="Miscellaneous carry weight bonuses"/>
+            </div>
+        </div>
+    </div>   
+	<!-- Third column -->
+	<div class='sheet-col' style="">
+        <!--defenses-->
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_armor_type_name">Armor Type</label>
+            </div>
+            <div class="sheet-right-attr">
+                <select name="attr_armor_type" style='Width:100px'>
+                    <option value="Heavy">Heavy</option>
+                    <option value="Light">Light</option>
+                </select>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+                <label class="sheet-inline" name="attr_has_shield_label" style="position:relative; top:-5px">Has shield?</label>
+            </div>
+            <div class="sheet-right-attr">
+                <input name="attr_has_shield" type="checkbox"/>
+            </div>
+        </div>
+		<div class="sheet-row-attr">
+            <div class="sheet-left-attr">
+			</div>
+            <div class="sheet-right-attr">
+                <!--Attribute names-->
+               <b>Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Misc</b>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="margin-top:0px">
+            	<label class="sheet-inline" name="attr_AC_label">AC</label>
+            </div>
+            <div class="sheet-right-attr">
+            	<input class="sheet-inline" type="hidden" name="attr_ac" style="width:50px" />
+                <input class="sheet-inline" type="number" name="attr_ac_actual" disabled="true" value="@{ac}" style="width:50px"/>
+            	<input class="sheet-inline" type="number" name="attr_ac_misc" style="margin-left:5px" value="0" title="Miscellaneous AC bonuses"/>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="margin-top:0px">
+            	<label class="sheet-inline" name="attr_reflex_label">Reflex</label>
+            </div>
+            <div class="sheet-right-attr">
+            	<input class="sheet-inline" type="hidden" name ="attr_reflex" style="width:50px" />
+                <input class="sheet-inline" type="number" name="attr_reflex_actual" disabled="true" value="@{reflex}" style="width:50px"/>
+            	<input class="sheet-inline" type="number" name="attr_reflex_misc" style="margin-left:5px" value="0" title="Miscellaneous Reflex bonuses"/>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="margin-top:0px">
+            	<label class="sheet-inline" name="attr_fort_label">Fortitude</label>
+            </div>
+            <div class="sheet-right-attr">
+            	<input class="sheet-inline" type="hidden" name ="attr_fort" style="width:50px" />
+                <input class="sheet-inline" type="number" name="attr_fort_actual" disabled="true" value="@{fort}" style="width:50px"/>
+            	<input class="sheet-inline" type="number" name="attr_fort_misc" style="margin-left:5px" value="0" title="Miscellaneous Fortitude bonuses"/>
+            </div>
+        </div>
+        <div class="sheet-row-attr">
+            <div class="sheet-left-attr" style="margin-top:0px">
+            	<label class="sheet-inline" name="attr_will_label">Will</label>
+            </div>
+            <div class="sheet-right-attr">
+            	<input class="sheet-inline" type="hidden" name ="attr_will" style="width:50px" />
+                <input class="sheet-inline" type="number" name="attr_will_actual" disabled="true" value="@{will}" style="width:50px"/>
+            	<input class="sheet-inline" type="number" name="attr_will_misc" style="margin-left:5px" value="0" title="Miscellaneous Will bonuses"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- skills-->
+<h3>Skills</h3>
+<div class='sheet-2colrow'>
+    <div class='sheet-col' style="">
+     <table>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Mod</th>
+                <th>Misc</th>
+                <th>Tallies</th>
+                <th>Roll</th>
+            </tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_acrobatics_label" style="float:right;"><input name="attr_acrobatics_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Acrobatics</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_acrobatics" style="width:50px" disabled="true" value="@{skill_acrobatics_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_acrobatics_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_acrobatics_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_acrobatics_mod_actual" disabled="true" value="@{skill_acrobatics_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_acrobatics_misc" value="0" style="margin-left:5px" title="Miscellaneous acrobatics bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_acrobatics_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_acrobatics_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Acrobatics}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_acrobatics_mod}]]}}{{emote=*Balance and coordination*}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_athletics_label" style="float:right"><input name="attr_athletics_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Athletics</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_athletics" style="width:50px" disabled="true" value="@{skill_athletics_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_athletics_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_athletics_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_athletics_mod_actual" disabled="true" value="@{skill_athletics_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_athletics_misc" value="0" style="margin-left:5px" title="Miscellaneous athletics bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_athletics_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_athletics_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Athletics}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_athletics_mod}]]}}{{emote=Jumping, climbing, and other physical activity}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_block_label" style="float:right"><input name="attr_block_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Block</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_block" style="width:50px" disabled="true" value="@{skill_block_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_block_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_block_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_block_mod_actual" disabled="true" value="@{skill_block_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_block_misc" value="0" style="margin-left:5px" title="Miscellaneous block bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_block_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_block_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Block}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_block_mod}]]}}{{emote=A good defense makes the best offence}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_chemistry_label" style="float:right"><input name="attr_chemistry_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Chemistry</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_chemistry" style="width:50px" disabled="true" value="@{skill_chemistry_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_chemistry_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_chemistry_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_chemistry_mod_actual" disabled="true" value="@{skill_chemistry_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_chemistry_misc" value="0" style="margin-left:5px" title="Miscellaneous chemistry bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_chemistry_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_chemistry_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Chemistry}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_chemistry_mod}]]}}{{emote=Chemistry can represent everything from pharmacology to alchemy}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_control_label" style="float:right"><input name="attr_control_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Control</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_control" style="width:50px" disabled="true" value="@{skill_control_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_control_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_control_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_control_mod_actual" disabled="true" value="@{skill_control_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_control_misc" value="0" style="margin-left:5px" title="Miscellaneous control bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_control_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_control_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Control}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_control_mod}]]}}{{emote=Bending reality to suit your needs}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_craft_label" style="float:right"><input name="attr_craft_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Craft</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_craft" style="width:50px" disabled="true" value="@{skill_craft_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_craft_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_craft_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_craft_mod_actual" disabled="true" value="@{skill_craft_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_craft_misc" value="0" style="margin-left:5px" title="Miscellaneous craft bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_craft_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_craft_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Craft}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_craft_mod}]]}}{{emote=Smithing, tempering, and forming jewelry armor, and simple weapons.}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_destruction_label" style="float:right"><input name="attr_destruction_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Destruction</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_destruction" style="width:50px" disabled="true" value="@{skill_destruction_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_destruction_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_destruction_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_destruction_mod_actual" disabled="true" value="@{skill_destruction_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_destruction_misc" value="0" style="margin-left:5px" title="Miscellaneous destruction bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_destruction_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_destruction_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Destruction}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_destruction_mod}]]}}{{emote=Using offensive Abilities, often controlling elements}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_disguise_label" style="float:right"><input name="attr_disguise_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Disguise</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_disguise" style="width:50px" disabled="true" value="@{skill_disguise_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_disguise_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_disguise_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_disguise_mod_actual" disabled="true" value="@{skill_disguise_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_disguise_misc" value="0" style="margin-left:5px" title="Miscellaneous disguise bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_disguise_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_disguise_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Disguise}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_disguise_mod}]]}}{{emote=Creating or implementing a disguise on yourself or a willing/helpless individual.}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_engineering_label" style="float:right;font-size:14px;"><input name="attr_engineering_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Engineering</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_engineering" style="width:50px" disabled="true" value="@{skill_engineering_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_engineering_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_engineering_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_engineering_mod_actual" disabled="true" value="@{skill_engineering_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_engineering_misc" value="0" style="margin-left:5px" title="Miscellaneous engineering bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_engineering_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_engineering_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Engineering}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_engineering_mod}]]}}{{emote=Using a device, tool, or piece of technology}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_enhancement_label" style="float:right;font-size:12px;"><input name="attr_enhancement_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Enhancement</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_enhancement" style="width:50px" disabled="true" value="@{skill_enhancement_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_enhancement_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_enhancement_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_enhancement_mod_actual" disabled="true" value="@{skill_enhancement_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_enhancement_misc" value="0" style="margin-left:5px" title="Miscellaneous enhancement bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_enhancement_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_enhancement_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enhancement}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_enhancement_mod}]]}}{{emote=Making those around you faster, stronger, better.}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_enlightenment_label" style="font-size:12px;float:right"><input name="attr_enlightenment_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Enlightenment</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_enlightenment" style="width:50px" disabled="true" value="@{skill_enlightenment_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_enlightenment_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_enlightenment_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_enlightenment_mod_actual" disabled="true" value="@{skill_enlightenment_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_enlightenment_misc" value="0" style="margin-left:5px" title="Miscellaneous enlightenment bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_enlightenment_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_enlightenment_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_enlightenment_mod}]]}}{{emote=Understanding of religions, prayers, beliefs, ceremonies, and rituals}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_escape_label" style="float:right"><input name="attr_escape_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Escape</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_escape" style="width:50px" disabled="true" value="@{skill_escape_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_escape_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_escape_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_escape_mod_actual" disabled="true" value="@{skill_escape_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_escape_misc" value="0" style="margin-left:5px" title="Miscellaneous escape bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_escape_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_escape_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Escape}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_escape_mod}]]}}{{emote=*This is knot a pun*}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_heavy_armor_label" style="float:right"><input name="attr_heavy_armor_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Heavy Armor</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_heavy_armor" style="width:50px" disabled="true" value="@{skill_heavy_armor_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_heavy_armor_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_heavy_armor_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_heavy_armor_mod_actual" disabled="true" value="@{skill_heavy_armor_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_heavy_armor_misc" value="0" style="margin-left:5px" title="Miscellaneous heavy armor bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_heavy_armor_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_heavy_armor_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Heavy Armor}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_heavy_armor_mod}]]}}{{emote=The mastery of Iron, Steel or Fridge as a defensive tool.}}"></button>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_interaction_label" style="float:right"><input name="attr_interaction_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Interaction</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_interaction" style="width:50px" disabled="true" value="@{skill_interaction_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_interaction_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_interaction_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_interaction_mod_actual" disabled="true" value="@{skill_interaction_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_interaction_misc" value="0" style="margin-left:5px" title="Miscellaneous interaction bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_interaction_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_interaction_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Interaction}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_interaction_mod}]]}}{{emote=Lying, seducing, planting seeds of doubt, inspiring allies, intimidating enemies, persuading, and concealing secret messages in speech}}"></button>
+    			</td>
+    		</tr>
+            <tr>
+    			<td class="skill-row">
+    				<label class="sheet-inline" name="attr_knowledge_label" style="float:right"><input name="attr_knowledge_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Knowledge</label>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name ="attr_skill_knowledge" style="width:50px" disabled="true" value="@{skill_knowledge_hidden}"/>
+    				<input type="hidden" value="0" name="attr_skill_knowledge_hidden"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="hidden" name="attr_skill_knowledge_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_knowledge_mod_actual" disabled="true" value="@{skill_knowledge_mod}" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_knowledge_misc" value="0" style="margin-left:5px" title="Miscellaneous knowledge bonuses"/>
+    			</td>
+    			<td class="skill-row">
+    				<input class="sheet-inline" type="number" name="attr_skill_knowledge_tallies" value="0" style="margin-left:5px"/>
+    			</td>
+    			<td class="skill-row">
+    				<button type="roll" name="roll_knowledge_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Knowledge}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_knowledge_mod}]]}}{{emote=Knowledge of history, monsters, folklore, mathematics, or most other subjects taught by an education}}"></button>
+    			</td>
+    		</tr>
+        </table>
+	</div>
+    <div class='sheet-col' style="">
+        <!--Second column-->
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Mod</th>
+            <th>Misc</th>
+            <th>Tallies</th>
+            <th>Roll</th>
+        </tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_light_armor_label" style="float:right"><input name="attr_light_armor_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Light Armor</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_light_armor" style="width:50px" disabled="true" value="@{skill_light_armor_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_light_armor_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_light_armor_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_light_armor_mod_actual" disabled="true" value="@{skill_light_armor_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_light_armor_misc" value="0" style="margin-left:5px" title="Miscellaneous light armor bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_light_armor_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_light_armor_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Light Armor}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_light_armor_mod}]]}}{{emote=The master of Leather, Hide, or Kittens as a defensive tool.}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_medicine_label" style="float:right"><input name="attr_medicine_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Medicine</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_medicine" style="width:50px" disabled="true" value="@{skill_medicine_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_medicine_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_medicine_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_medicine_mod_actual" disabled="true" value="@{skill_medicine_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_medicine_misc" value="0" style="margin-left:5px" title="Miscellaneous medicine bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_medicine_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_medicine_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Medicine}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_medicine_mod}]]}}{{emote=Providing first aid and healing allies in combat }}{{ =Stabilizing a dying creature requires a DC 15 medicine check.}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_melee_weapon_label" style="float:right"><input name="attr_melee_weapon_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Melee Weapon</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_melee_weapon" style="width:50px" disabled="true" value="@{skill_melee_weapon_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_melee_weapon_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_melee_weapon_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_melee_weapon_mod_actual" disabled="true" value="@{skill_melee_weapon_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_melee_weapon_misc" value="0" style="margin-left:5px" title="Miscellaneous melee weapon bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_melee_weapon_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_melee_weapon_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Melee Weapon}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_melee_weapon_mod}]]}}{{emote=Accuracy and damage with melee weapons}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_perception_label" style="float:right"><input name="attr_perception_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Perception</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_perception" style="width:50px" disabled="true" value="@{skill_perception_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_perception_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_perception_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_perception_mod_actual" disabled="true" value="@{skill_perception_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_perception_misc" value="0" style="margin-left:5px" title="Miscellaneous perception bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_perception_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_perception_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Perception}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_perception_mod}]]}}{{emote=Hearing, seeing, feeling, or otherwise sensing that something is out of place}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_ranged_label" style="float:right"><input name="attr_ranged_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Ranged</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_ranged" style="width:50px" disabled="true" value="@{skill_ranged_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_ranged_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_ranged_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_ranged_mod_actual" disabled="true" value="@{skill_ranged_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_ranged_misc" value="0" style="margin-left:5px" title="Miscellaneous ranged bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_ranged_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_ranged_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Ranged}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_ranged_mod}]]}}{{emote=Eliminating enemies at range through the use of thrown or launched projectiles.}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_ride_drive_label" style="float:right"><input name="attr_ride_drive_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Ride drive</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_ride_drive" style="width:50px" disabled="true" value="@{skill_ride_drive_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_ride_drive_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_ride_drive_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_ride_drive_mod_actual" disabled="true" value="@{skill_ride_drive_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_ride_drive_misc" value="0" style="margin-left:5px" title="Miscellaneous ride/drive bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_ride_drive_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_ride_drive_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Ride/Drive}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_ride_drive_mod}]]}}{{emote=Mounting and riding exotic animals and vehicles}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_security_label" style="float:right"><input name="attr_security_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Security</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_security" style="width:50px" disabled="true" value="@{skill_security_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_security_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_security_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_security_mod_actual" disabled="true" value="@{skill_security_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_security_misc" value="0" style="margin-left:5px" title="Miscellaneous security bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_security_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_security_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Security}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_security_mod}]]}}{{emote=Opening locks and determining access codes. Setting up or breaching security systems}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_sense_motive_label" style="float:right"><input name="attr_sense_motive_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Sense motive</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_sense_motive" style="width:50px" disabled="true" value="@{skill_sense_motive_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_sense_motive_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_sense_motive_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_sense_motive_mod_actual" disabled="true" value="@{skill_sense_motive_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_sense_motive_misc" value="0" style="margin-left:5px" title="Miscellaneous sense motive bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_sense_motive_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_sense_motive_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Sense Motive}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_sense_motive_mod}]]}}{{emote=Sensing other’s intentions, including lies and malice}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_sleight_of_hand_label" style="float:right"><input name="attr_sleight_of_hand_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Sleight of hand</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_sleight_of_hand" style="width:50px" disabled="true" value="@{skill_sleight_of_hand_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_sleight_of_hand_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_sleight_of_hand_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_sleight_of_hand_mod_actual" disabled="true" value="@{skill_sleight_of_hand_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_sleight_of_hand_misc" value="0" style="margin-left:5px" title="Miscellaneous sleight of hand bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_sleight_of_hand_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_sleight_of_hand_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Sleight of hand}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_sleight_of_hand_mod}]]}}{{emote=Performing small tricks, prestidigitation, or stealing a small item off a person}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_stealth_label" style="float:right"><input name="attr_stealth_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Stealth</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_stealth" style="width:50px" disabled="true" value="@{skill_stealth_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_stealth_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_stealth_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_stealth_mod_actual" disabled="true" value="@{skill_stealth_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_stealth_misc" value="0" style="margin-left:5px" title="Miscellaneous stealth bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_stealth_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_stealth_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Stealth}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_stealth_mod}]]}}{{emote=Moving or performing actions without being noticed}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_survival_label" style="float:right"><input name="attr_survival_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Survival</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_survival" style="width:50px" disabled="true" value="@{skill_survival_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_survival_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_survival_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_survival_mod_actual" disabled="true" value="@{skill_survival_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_survival_misc" value="0" style="margin-left:5px" title="Miscellaneous survival bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_survival_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_survival_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Survival}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_survival_mod}]]}}{{emote=Knowledge of nature: Plants, animals, edible mushrooms, poisonous herbs, etc.}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_unarmed_combat_label" style="font-size:12px;float:right"><input name="attr_unarmed_combat_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Unarmed combat</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_unarmed_combat" style="width:50px" disabled="true" value="@{skill_unarmed_combat_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_unarmed_combat_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_unarmed_combat_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_unarmed_combat_mod_actual" disabled="true" value="@{skill_unarmed_combat_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_unarmed_combat_misc" value="0" style="margin-left:5px" title="Miscellaneous unarmed combat bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_unarmed_combat_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_unarmed_combat_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Unarmed Combat}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_unarmed_combat_mod}]]}}{{emote=An expert of unarmed combat is as likely to strike with a hand as to kick or even headbutt. *Hiihyah!*}}"></button>
+			</td>
+		</tr>
+		<tr>
+			<td class="skill-row">
+				<label class="sheet-inline-col2" name="attr_utility_label" style="float:right"><input name="attr_utility_major" type="checkbox" title="Major skill?" style="float:left;margin-right:2px"/>Utility</label>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name ="attr_skill_utility" style="width:50px" disabled="true" value="@{skill_utility_hidden}"/>
+				<input type="hidden" value="0" name="attr_skill_utility_hidden"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="hidden" name="attr_skill_utility_mod" style="margin-left:5px"/>
+					<input class="sheet-inline" type="number" name="attr_skill_utility_mod_actual" disabled="true" value="@{skill_utility_mod}" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_utility_misc" value="0" style="margin-left:5px" title="Miscellaneous utility bonuses"/>
+			</td>
+			<td class="skill-row">
+				<input class="sheet-inline" type="number" name="attr_skill_utility_tallies" value="0" style="margin-left:5px"/>
+			</td>
+			<td class="skill-row">
+				<button type="roll" name="roll_utility_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Utility}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{skill_utility_mod}]]}}{{emote=I have *just* the thing.}}"></button>
+			</td>
+		</tr>
+
+    </table>
+
+
+   <div class="sheet-row" style="float-left; display:inline;">
+		<fieldset class="repeating_skill">
+			<div class="sheet-row" style="clear:none;float:left; display:inline; width:380.8px;">
+				<div style="float:left; width:88px;" >
+					<input name="attr_cust_skill_major" type="checkbox" title="Major skill?" style="float:left;margin-left:-10px"/>
+					<input type="text" style="width:85px;" class=""  name="attr_custom_skill_name">
+				</div>
+				<div style="float:left; width:53px;" ><select style="width:100%;" name="attr_cust_skill_parent_attr">
+							<option value="cha">CHA</option>
+							<option value="con">CON</option>
+							<option value="dex">DEX</option>
+							<option value="int">INT</option>
+							<option value="lck">LCK</option>
+							<option value="spd">SPD</option>
+							<option value="str">STR</option>
+							<option value="wis">WIS</option>
+							<!--TODO autopopulate custom attributes-->
+						</select></div>
+				<div style="float:left; width:50px; margin-right:6px " ><input style="width:100%;" class="" type="hidden" name ="attr_cust_skill_score"/></div>
+				<div style="float:left; width:50px; margin-right:6px " ><input style="width:100%;" class="" disabled="true" type="number" name ="attr_cust_skill_score_actual" value="@{cust_skill_score}"/></div>
+				<div style="float:left; width:50px; margin-right:6px " ><input style="width:100%" class="" type="hidden" name="attr_cust_skill_mod"/></div>
+				<div style="float:left; width:45.5px; margin-right:6px " ><input style="width:100%" class="" type="number" disabled="true" name="attr_cust_skill_mod_actual" value="@{cust_skill_mod}"/></div>
+				<div style="float:left; width:45.5px; margin-right:6px " ><input style="width:100%;margin-left:2px" class="" type="number" name="attr_cust_skill_misc" value="0"/></div>
+				<div style="float:left; width:45.5px; margin-right:6px "><input style="width:100%;margin-left:2px" class="" type="number" name="attr_cust_skill_tallies" value="0"/></div>
+				<div style="float:left; width:6%;"><button style="width:22.85px;margin-left:2px;margin-top:2px"  type="roll" name="roll_cust_skill_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title=@{custom_skill_name}}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}} {{roll= [[1d20+@{cust_skill_mod}]]}}"></button></button></div>
+			</div>
+		</fieldset>
+	</div>
+    </div>
+</div>
+
+<!--Equipment-->
+<h3>Equipment</h3>
+<div class='sheet-row'>
+    <div style="width:100%;">
+		<div class="section-header" style="height:30px;width:270px;padding-left:15px;">
+			<label style="float:left;width:110px;">Carry Weight:</label>
+			<input class="sheet-inline" type="number" name="attr_carry_weight_actual" value="@{carry_weight}" style="width:50px;float:left;" readonly/>
+			 <p class="sheet-big">/</p>
+			<input class="sheet-inline" name="attr_carry_weight_max" style="width:50px" readonly/>
+		</div>
+		<div style="height:20px;">
+			<div style="float:left;width:10%;text-align:center;">Weight</div>
+			<div style="float:left;width:90%;text-align:center;">Description</div>
+		</div>
+        <fieldset class="repeating_equipment">
+            <input type="number" style="width:10%; margin-bottom:5px;float:left;" value="0" name="attr_equipment_weight">
+            <input type="text" style="width:90%; margin-bottom:5px;float:left;" name="attr_equipment_cust">
+        </fieldset>
+    </div>
+</div>
+
+<!--Attacks-->
+<h3>Attacks</h3>
+<div class='sheetrow' style="min-width:864px;">
+    <div class="sheet-label-name-attacks-heading" style="width:50%">Attack</div>
+    <div class="sheet-label-name-attacks-heading" style="width:50%">Damage</div>
+    <hr class="sheet-hr-divider">
+
+	<div style="height:36.8px;text-align:center;">
+		<div style="float:left; width:7.4%;">Name</div>
+		<div style="float:left; width:6.3%;">Two Handed</div>
+		<div style="float:left; width:6.1%;">Range Misc</div>
+		<div style="float:left; width:5.7%;">Range</div>
+		<div style="float:left; width:6.1%;">Attack Misc</div>
+		<div style="float:left; width:5.6%;">To Hit</div>
+		<div style="float:left; width:7%;">Damage Die Misc</div>
+		<div style="float:left; width:6.5%;min-width:56px;">Damage Die</div>
+		<div style="float:left; width:7.1%;min-width:56px;">Added Damage</div>
+		<div style="float:left; width:6.8%;">Misc Damage</div>
+		<div style="float:left; width:5.7%;">Crits on</div>
+		<div style="float:left; width:25.9%;">Notes</div>
+		<div style="float:left; width:3.8%;">Roll</div>
+	</div>
+	
+	<div style="height:36.8px;">
+		<div style="float:left; width:7.4%;height:36.8px;">Melee Weapon</div>
+		<input type="hidden" name="attr_base_damage_die_melee" value="4"/>
+		<div style="float:left; width:6.3%;height:36.8px;"><input name="attr_melee_weapon_attack_two_handed" type="checkbox"  style="margin-left:20.4px;"/></div>
+		<div style="float:left; width:6.1%;height:36.8px;"><input type="number" name="attr_melee_weapon_range_misc" value="0"></input></div>
+		<div style="float:left; width:5.7%;height:36.8px;"><input type="number" name="attr_melee_weapon_range_total" disabled="true" value="(@{melee_weapon_range_misc}+1)"/></input></div> 
+		<div style="float:left; width:6.1%;height:36.8px;"><input type="number" name="attr_melee_weapon_attack_misc" value="0"></input></div>
+		<div style="float:left; width:5.6%;height:36.8px;"><input type="number" name="attr_melee_weapon_attack_total" disabled="true" value="((@{melee_weapon_attack_misc}) + (@{skill_melee_weapon_mod}))"/></input></div> 
+		<div style="float:left; width:7%;height:36.8px;"><input type="number" name="attr_melee_weapon_dam_die_misc" value="0"></input></div>
+		<div style="float:left; width:6.5%;min-width:56px;height:36.8px;">
+			<div style="width:10%; min-width:10px; float: left;">
+				<label style="font-size: 14px">d</label>
+			</div>
+			<input type="number" style="width:90%;max-width:45.5px;float:left;" name="attr_dam_die_melee" disabled="true" value="(@{base_damage_die_melee} + @{melee_weapon_dam_die_misc})"/></input></div>
+		<div style="float:left; width:7.1%;min-width:56px;">
+			<div style="width:10%; min-width:10px; float: left;">
+				<label style="font-size: 14px">+</label>
+			</div>
+			<input type="number" style="width:90%;max-width:45.5px;float:left;" name="attr_melee_weapon_attack_dam_total" disabled="true" value="((@{skill_melee_weapon_mod})+@{melee_weapon_attack_dam_misc})"/></input></div> 
+		<div style="float:left; width:6.8%;height:36.8px;"><input type="number" name="attr_melee_weapon_attack_dam_misc" value="0"/></input></div>
+		<div style="float:left; width:5.7%;height:36.8px;"><input type="number" name="attr_melee_weapon_attack_crit_target" value="20"></input></div>
+		<div style="float:left; width:25.9%;height:36.8px;"><input type="text" name="attr_melee_weapon_attack_notes"/></input></div>
+		<div style="float:left; width:3.8%;height:36.8px;"><button type="roll" name="roll_melee_weapon_attack" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Melee Weapon Attack}} {{subheader=@{char_name}}} {{attack=[[1d20cs>@{melee_weapon_attack_crit_target}+@{melee_weapon_attack_total}]]}} {{damage=[[d@{dam_die_melee}+@{melee_weapon_attack_dam_total}]]}}{{critdamage=[[@{dam_die_melee}+@{melee_weapon_attack_dam_total}+d@{dam_die_melee}+@{melee_weapon_attack_dam_total}]]}}{{emote=*Melee Weapon attack*}}"></button></div>
+	</div>
+	
+	<div style="height:36.8px;">
+		<div style="float:left; width:7.4%;height:36.8px;">Ranged Weapon</div>
+		<input type="hidden" name="attr_base_damage_die_ranged" value="4"/>
+		<div style="float:left; width:6.3%;height:36.8px;"><input name="attr_ranged_attack_two_handed" type="checkbox"  style="margin-left:20.4px;"/></div>
+		<div style="float:left; width:6.1%;height:36.8px;"><input type="number" name="attr_ranged_range_misc" value="0"></input></div>
+		<div style="float:left; width:5.7%;height:36.8px;"><input type="number" name="attr_ranged_range_total" disabled="true" value="((@{ranged_range_misc}) + (2 * @{skill_ranged_mod}))"></input></div>
+		<div style="float:left; width:6.1%;height:36.8px;"><input type="number" name="attr_ranged_attack_misc" value="0"></input></div>
+		<div style="float:left; width:5.6%;height:36.8px;"><input type="number" name="attr_ranged_attack_total" disabled="true" value="((@{ranged_attack_misc}) + (@{skill_ranged_mod}))"></input></div> 
+		<div style="float:left; width:7%;height:36.8px;"><input type="number" name="attr_ranged_attack_dam_die_misc" value="0"></input></div>
+		<div style="float:left; width:6.5%;min-width:56px;height:36.8px;">
+			<div style="width:10%; min-width:10px; float: left;">
+				<label style="font-size: 14px">d</label>
+			</div>
+			<input type="number" style="width:90%;max-width:45.5px;float:left;" name="attr_dam_die_ranged" disabled="true" value="(@{base_damage_die_ranged} + @{ranged_attack_dam_die_misc})"/></input></div>
+		<div style="float:left; width:7.1%;min-width:56px;height:36.8px;">
+			<div style="width:10%; min-width:10px; float: left;">
+				<label style="font-size: 14px">+</label>
+			</div>
+			<input type="number" style="width:90%;max-width:45.5px;float:left;" name="attr_ranged_attack_dam_total" disabled="true" value="((@{skill_ranged_mod})+@{ranged_attack_dam_misc})"></input></div>
+		<div style="float:left; width:6.8%;height:36.8px;"><input type="number" name="attr_ranged_attack_dam_misc" value="0"></input></div>
+		<div style="float:left; width:5.7%;height:36.8px;"><input type="number" name="attr_ranged_attack_crit_target" value="20"></input></div>
+		<div style="float:left; width:25.9%;height:36.8px;"><input type="text" name="attr_ranged_attack_notes"/></div>
+		<div style="float:left; width:3.8%;height:36.8px;"><button type="roll" name="roll_ranged_weapon_attack" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Ranged Weapon Attack}} {{subheader=@{char_name}}} {{attack=[[1d20cs>@{ranged_attack_crit_target}+@{ranged_attack_total}]]}} {{damage=[[d@{dam_die_ranged}+@{ranged_attack_dam_total}]]}}{{critdamage=[[@{dam_die_ranged}+@{ranged_attack_dam_total}+d@{dam_die_ranged}+@{ranged_attack_dam_total}]]}}{{emote=*Ranged Weapon attack*}}"></button></div>
+	</div>
+	
+	<div style="height:36.8px;">
+		<div style="float:left; width:7.4%;height:36.8px;">Unarmed Combat</div>
+		<input type="hidden" name="attr_base_damage_die_unarmed" value="2"/>
+		<div style="float:left; width:6.3%;height:36.8px;"><!--No two handed for unarmed--><label style="font-size: 14px;text-align:center;">N/A</label></div>
+		<div style="float:left; width:6.1%;height:36.8px;"><input type="number" name="attr_unarmed_range_misc" value="0"></input></div>
+		<div style="float:left; width:5.7%;height:36.8px;"><input type="number" name="attr_unarmed_range_total" disabled="true" value="(@{unarmed_range_misc}+1)"></input></div> 
+		<div style="float:left; width:6.1%;height:36.8px;"><input type="number" name="attr_unarmed_attack_misc" value="0"></input></div>
+		<div style="float:left; width:5.6%;height:36.8px;"><input type="number" name="attr_unarmed_attack_total" disabled="true" value="((@{unarmed_attack_misc}) + (@{skill_unarmed_combat_mod}))"></input></div> 
+		<div style="float:left; width:7%;height:36.8px;"><input type="number" name="attr_unarmed_attack_dam_die_misc" value="0"></input></div>
+		<div style="float:left; width:6.5%;min-width:56px;height:36.8px;">
+			<div style="width:10%; min-width:10px; float: left;">
+				<label style="font-size: 14px">d</label>
+			</div>
+			<input type="number" style="width:90%;max-width:45.5px;float:left;" name="attr_dam_die_unarmed" disabled="true" value="(@{base_damage_die_unarmed} + @{unarmed_attack_dam_die_misc})"/></input></div>
+		<div style="float:left; width:7.1%;min-width:56px;height:36.8px;">
+			<div style="width:10%; min-width:10px; float: left;">
+				<label style="font-size: 14px">+</label>
+			</div>
+			<input type="number" style="width:90%;max-width:45.5px;float:left;" name="attr_unarmed_attack_dam_total" disabled="true" value="((@{skill_unarmed_combat_mod})+@{unarmed_attack_dam_misc})"></input></div>
+		<div style="float:left; width:6.8%;height:36.8px;"><input type="number" name="attr_unarmed_attack_dam_misc" value="0"></input></div>
+		<div style="float:left; width:5.7%;height:36.8px;"><input type="number" name="attr_unarmed_attack_crit_target" value="20"></input></div>
+		<div style="float:left; width:25.9%;height:36.8px;"><input type="text" name="attr_ranged_attack_notes"/></div>
+		<div style="float:left; width:3.8%;height:36.8px;"><button type="roll" name="roll_unarmed_combat_attack" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=Unarmed Combat Attack}} {{subheader=@{char_name}}} {{attack=[[1d20cs>@{unarmed_attack_crit_target}+@{unarmed_attack_total}]]}} {{damage=[[d@{dam_die_unarmed}+@{unarmed_attack_dam_total}]]}}{{critdamage=[[@{dam_die_unarmed}+@{unarmed_attack_dam_total}+d@{dam_die_unarmed}+@{unarmed_attack_dam_total}]]}}{{emote=*Unarmed attack*}}"></button></div>
+	</div>
+	
+    <fieldset class="repeating_custom_attack">
+		<div style="height:36.8px;">
+			<div style="float:left; width:7.4%;"><select style="width:100%;" name="attr_type">
+								<option value="Melee Weapon">Melee Weapon</option>
+								<option value="Ranged Weapon">Ranged Weapon</option>
+								<option value="Unarmed Combat">Unarmed Combat</option>
+								<!--TODO autopopulate custom attributes-->
+			</select></div>
+			<div style="float:left; width:6.3%;"><input type="checkbox" name="attr_two_handed" style="margin-left:20.4px;"/></div>
+			<div style="float:left; width:6.1%;"><input type="number" name="attr_range_misc" style="width:45.5px;" value="0"></input></div>
+			<div style="float:left; width:5.7%;"><input type="number" name="attr_range_total" style="width:45.5px;" value="" readonly></input></div>
+			<div style="float:left; width:6.1%;"><input type="number" name="attr_to_hit_misc" style="width:45.5px;margin-left:2.85px;" value="0"></input></div>
+			<div style="float:left; width:5.6%;"><input type="number" name="attr_to_hit_total" style="width:45.5px;" value="" readonly></input></div>
+			<div style="float:left; width:7%;"><input type="number" name="attr_dam_die_misc" style="width:45.5px;" value="0"></input></div>
+			<div style="float:left; width:6.5%;min-width:56px;height:36.8px;">
+			<div style="width:10%; min-width:10px; float: left;">
+				<label style="font-size: 14px">d</label>
+			</div>
+			<input type="number" style="width:90%;max-width:45.5px;float:left;" <input type="number" name="attr_dam_die_total" style="width:39px; float:right;margin-right" value="" readonly></input></div>
+			<div style="float:left; width:7.1%;min-width:56px;">
+				<div style="width:10%; min-width:10px; float: left;">
+					<label style="font-size: 14px">+</label>
+				</div>
+				<input type="number" style="width:90%;max-width:45.5px;float:left;" name="attr_dam_total" style="width:45.5px; float:right" readonly></input>
+			</div>
+			<div style="float:left; width:6.8%;"><input type="number" name="attr_dam_misc" style="width:45.5px;" value="0"></input></div>
+			<div style="float:left; width:5.7%;"><input type="number" name="attr_crit_target" value="20"></input></div>
+			<div style="float:left; width:25.9%;"><input type="text" name="attr_notes"style="width:210px"/></div>
+			<div style="float:left; width:3.8%;"><button type="roll" name="roll_custom_attack" value="&{template:5eDefault} {{character_name=@{char_name}}} {{title=@{custom_attack_name}}} {{subheader=@{char_name}}} {{attack=[[1d20cs>@{custom_attack_crit_target}+@{custom_attack_misc}]]}} {{damage=[[d@{custom_attack_dam_die_misc}+@{custom_attack_dam_misc}]]}}{{critdamage=[[@{custom_attack_dam_die_misc}+@{custom_attack_dam_misc}+d@{custom_attack_dam_die_misc}+@{custom_attack_dam_misc}]]}}{{emote=*Custom attack!*}}"></button></div>
+		</div>
+	</fieldset>
+</div>
+                
+<!--Talents-->
+<h3>Talents and Skill Perks</h3>
+<!--If compendium, add here-->
+<div class='sheet-row'>
+    <div class="sheet-col">
+        <fieldset class="repeating_talent">
+            <input type="text" style="width:800px; margin-bottom:5px" name="attr_talent_cust">
+        </fieldset>
+    </div>
+</div>
+
+<!--Abilities-->
+<h3>Abilities</h3>
+<!--If compendium, add here-->
+<div>
+	<div class='section-header' style="height:30px;width:570px;padding-left:15px;">
+		<label style="float:left;width:110px;">Ability Points:</label>
+		<input class="sheet-inline" style="width:50px;float:left;" type="number" name ="attr_Abil" readonly/> 
+		<p class="sheet-big" style="float:left;">/</p>
+		<input class="sheet-inline" name="attr_abil_max" style="width:50px;float:left;" readonly/>
+		<label style="float:left;width:115px;padding-left:10px;">Regen for turn:</label>
+		<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --abil|%abil%+%abil_regen%|%abil_max%
+			&{template:5eDefault} {{ability=1}} {{character_name=@{char_name}}} {{title=Regen per turn}} {{subheader=@{char_name}}}"></button>
+		<label style="float:left;width:100px;padding-left:10px;">Regen to full:</label>
+		<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --abil|%abil_max%"></button>
+	</div>
+	<div class='sheet-row' style="height:52.8px;">
+		<div class="sheet-cust-abil" style="float:left; width:10%;">Name</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;">School</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;">Cost</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;">Sustain Cost</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;">To hit</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;">To hit Misc</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;min-width:56px; ">Damage Die Misc</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;min-width:56px; ">Damage Die</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;">Bonus Damage</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;">Bonus Damage Misc</div>
+		<div class="sheet-cust-abil" style="float:left; width:6%;">Crit Target</div>
+		<div class="sheet-cust-abil" style="float:left; width:20%;">Description</div>
+		<div class="sheet-cust-abil" style="float:left; width:10%;max-width:64px;">Roll/Sustain</div>
+	</div>
+	<fieldset class="repeating_ability">
+		<div class='sheet-row' style="height:32.7px;">
+			<input class="hidden" type="hidden" name="attr_ability_id" value=""/>
+			<div style="float:left; width:10%;"><input type="text" style="width:100%; margin-bottom:5px" name="attr_custom_ability_name"></div>
+			<div style="float:left; width:6%;"><select style="width:100%; margin-bottom:5px" name="attr_custom_ability_school_name">
+							<option value="Empty"></option>
+							<option value="Control">Control</option>
+							<option value="Destruction">Destruction</option>
+							<option value="Enhancement">Enhancement</option>
+							<option value="Utility">Utility</option>
+							<!--TODO autopopulate custom schools-->
+			</select></div>
+			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_cost"></div>
+			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_sustain_cost"></div>
+			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_to_hit"></div>
+			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_to_hit_misc"></div>
+			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px;float:left;" value="0" name="attr_custom_ability_dam_die_misc"></div>
+			<div style="float:left; min-width:56px; width:6%;">
+				<div style="width:10%;min-width:10px; float: left;">
+					<label style="font-size: 14px">d</label>
+				</div>
+				<input type="number" style="width:90%;max-width:45.5px; margin-bottom:5px;float:left;" value="0" name="attr_custom_ability_dam_die">
+			</div>
+			<div style="float:left; min-width:56px; width:6%;">
+				<div style="width:10%; min-width:10px; float:left;">
+					<label style="font-size: 14px">+</label>
+				</div>
+				<input type="number" style="width:90%;max-width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_dam">
+			</div>
+			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_dam_misc"></div>
+			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="20" name="attr_custom_ability_crit_target"></div>
+			<div style="float:left; width:20%;"><input type="text" style="width:100%; margin-bottom:5px" name="attr_custom_ability_desc"></div>
+			<div style="float:left; width:10%;max-width:64px;">
+			<button type="roll" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --abil|%abil% - @{custom_ability_cost}
+				&{template:5eDefault} {{ability=1}} {{character_name=@{char_name}}} {{title=@{custom_ability_name}}} {{subheader=@{char_name} • @{custom_ability_school_name}}} {{attack=[[1d20cs>@{custom_ability_crit_target}+@{custom_ability_to_hit}]]}} {{damage=[[d@{custom_ability_dam_die}+@{custom_ability_dam}]]}}{{critdamage=[[d@{custom_ability_dam_die}+@{custom_ability_dam}]]}}{{emote=@{custom_ability_desc}}}"></button>
+			<button type="roll" style="background-image:-webkit-linear-gradient(top,#fff,cornflowerblue);background-color:cornflowerblue;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --abil|%abil% - @{custom_ability_sustain_cost}
+				&{template:5eDefault} {{ability=1}} {{character_name=@{char_name}}} {{title=@{custom_ability_name}}} {{subheader=@{char_name} • @{custom_ability_school_name}}} {{attack=[[1d20cs>@{custom_ability_crit_target}+@{custom_ability_to_hit}]]}} {{damage=[[d@{custom_ability_dam_die}+@{custom_ability_dam}]]}}{{critdamage=[[d@{custom_ability_dam_die}+@{custom_ability_dam}]]}}{{emote=@{custom_ability_desc}}}"></button>
+			</div>
+		</div>
+	</fieldset>
+</div>
+
+<!--Enlightenment-->
+<h3>Enlightenment Truths</h3>
+<div class="sheet-row">
+	<div class="section-header" style="height:30px;width:470px;padding-left:15px;">
+		<label style="float:left;width:170px;">Enlightenment Points:</label>
+		<input class="sheet-inline" name="attr_enlightenment_points" style="width:50px;float:left;" type="number" readonly/> 
+		<p class="sheet-big" style="float:left;">/</p>
+		<input class="sheet-inline" name="attr_enlightenment_points_max" style="width:50px;float:left;" readonly/>
+		<label style="float:left;width:100px;padding-left:10px;">Regen to full:</label>
+		<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%skill_enlightenment_hidden%
+			&{template:5eDefault} {{ability=1}} {{character_name=@{char_name}}} {{title=Regen enlightenment}} {{subheader=@{char_name}}} {{emote=Takes a standard}}"></button>
+	</div>
+    <div class="sheet-col">
+		<table>
+			<tr>
+				<th>Roll</th>
+				<th>Cost</th>
+				<th>Effect</th>
+				<th>Roll</th>
+				<th>Cost</th>
+				<th>Effect</th>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-5 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=+2 to attack rolls}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_1_cost" style="width:45px" disabled="true" value="5"/>
+				</td>
+				<td class="skill-row" style="width:300px">
+					<label class="sheet-inline-col2" name="enlightenment_1_effect" style="margin-left:5px">+2 to attack rolls</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-10 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Increase damage die by 1}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_2_cost" style="width:45px" disabled="true" value="10"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_2_effect" style="margin-left:5px">Increase damage die by 1</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-15 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=+2 Movement}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_3_cost" style="width:45px" disabled="true" value="15"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_3_effect" style="margin-left:5px">+2 Movement</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-20 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Detect Evil in Enlightenment range}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_4_cost" style="width:45px" disabled="true" value="20"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_4_effect" style="margin-left:5px">Detect Evil in Enlightenment range</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-25 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=+2 AC, Fortitude, Reflex, or Will}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_5_cost" style="width:45px" disabled="true" value="25"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_5_effect" style="margin-left:5px">+2 AC, Fortitude, Reflex, or Will</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-30 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Heal 10 hit points}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_6_cost" style="width:45px" disabled="true" value="30"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_6_effect" style="margin-left:5px">Heal 10 hit points</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-35 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=+2 to all defenses}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_7_cost" style="width:45px" disabled="true" value="35"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_7_effect" style="margin-left:5px">+2 to all defenses</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-40 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Increase damage multiplier by 1}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_8_cost" style="width:45px" disabled="true" value="40"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_8_effect" style="margin-left:5px">Increase damage multiplier by 1</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-40 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Exorcise one in enlightment range 5+ miles away}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_9_cost" style="width:45px" disabled="true" value="40"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_9_effect" style="margin-left:5px">Exorcise one in enlightment range 5+ miles away</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-45 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=+5 to attack}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_10_cost" style="width:45px" disabled="true" value="45"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_10_effect" style="margin-left:5px">+5 to attack</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-50 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=+4 Movement}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_11_cost" style="width:45px" disabled="true" value="50"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_11_effect" style="margin-left:5px">+4 Movement</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-55 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Save against one effect a save can end}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_12_cost" style="width:45px" disabled="true" value="55"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_12_effect" style="margin-left:5px">Save against one effect a save can end</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-60 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=The next d20 you roll has advantage}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_13_cost" style="width:45px" disabled="true" value="60"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_13_effect" style="margin-left:5px">The next d20 you roll has advantage</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-60 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Add 1d4 x enlightenment mod to next attack}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_14_cost" style="width:45px" disabled="true" value="60"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_14_effect" style="margin-left:5px">Add 1d4 x enlightenment mod to next attack</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-65 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=+5 AC, Fortitude, Reflex, or Will}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_15_cost" style="width:45px" disabled="true" value="65"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_15_effect" style="margin-left:5px">+5 AC, Fortitude, Reflex, or Will</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-70 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=+5 all defenses}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_16_cost" style="width:45px" disabled="true" value="70"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_16_effect" style="margin-left:5px">+5 all defenses</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-75 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						roll_utility_Check" value="&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Immune to Ranged OR Melee attacks}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_17_cost" style="width:45px" disabled="true" value="75"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_17_effect" style="margin-left:5px">Immune to Ranged OR Melee attacks</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-80 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Gain an extra standard action}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_18_cost" style="width:45px" disabled="true" value="80"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_18_effect" style="margin-left:5px">Gain an extra standard action</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-80
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Cure Disease on adjacent creature}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_19_cost" style="width:45px" disabled="true" value="80"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_19_effect" style="margin-left:5px">Cure Disease on adjacent creature</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-85 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Immune to harmful spells}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_20_cost" style="width:45px" disabled="true" value="85"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_20_effect" style="margin-left:5px">Immune to harmful spells</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-90 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=All attacks that hit deal critical damage}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_21_cost" style="width:45px" disabled="true" value="90"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_21_effect" style="margin-left:5px">All attacks that hit deal critical damage</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-95 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=Increase damage multiplier by 5}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_22_cost" style="width:45px" disabled="true" value="95"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_22_effect" style="margin-left:5px">Increase damage multiplier by 5</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-100 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=+10 to attack}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_23_cost" style="width:50px" disabled="true" value="100"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_23_effect" style="margin-left:5px">+10 to attack</label>
+				</td>
+				<td class="skill-row">
+					<button type="roll" name="roll_utility_Check" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%enlightenment_points%-100 --skill_enlightenment_tallies|%skill_enlightenment_tallies%+1
+						&{template:5eDefault} {{character_name=@{char_name}}}{{title= Enlightenment}} {{subheader=@{char_name}}} {{subheaderright=Skill}} {{ability=1}} {{simple=1}}{{emote=For 10 days, you don't need to eat, or breathe and withstand -300 to 300°F}}"></button>
+				</td>
+				<td class="skill-row">
+					<input class="sheet-inline" name="enlightenment_24_cost" style="width:50px" disabled="true" value="100"/>
+				</td>
+				<td class="skill-row">
+					<label class="sheet-inline-col2" name="enlightenment_24_effect" style="margin-left:5px">For 10 days, you don't need to eat, or breathe and withstand -300 to 300°F</label>
+				</td>
+			</tr>
+		</table>
+    </div>
+</div>
+
+<!--Scripts-->
+
+<script type="text/worker">
+
+//Attributes change
+on("sheet:opened change:strength change:constitution change:dexterity change:intelligence change:wisdom change:charisma change:speed change:luck change:repeating_attribute:custom_att_score change:carry_weight_misc change:hp_misc change:abil_misc change:abil_regen_misc change:abil_enlightenment_misc change:fortune_misc change:movement_misc change:init_misc change:skill_enlightenment_hidden", function() {
+   update_attributes();
+});
+
+on("sheet:opened change:skill_acrobatics_tallies change:skill_athletics_tallies change:skill_block_tallies change:skill_chemistry_tallies change:skill_control_tallies change:skill_craft_tallies change:skill_destruction_tallies change:skill_disguise_tallies change:skill_engineering_tallies change:skill_enhancement_tallies change:skill_enlightenment_tallies change:skill_escape_tallies change:skill_heavy_armor_tallies change:skill_interaction_tallies change:skill_knowledge_tallies change:skill_light_armor_tallies change:skill_medicine_tallies change:skill_melee_weapon_tallies change:skill_perception_tallies change:skill_ranged_tallies change:skill_ride_drive_tallies change:skill_security_tallies change:skill_sense_motive_tallies change:skill_sleight_of_hand_tallies change:skill_stealth_tallies change:skill_survival_tallies change:skill_unarmed_combat_tallies change:skill_utility_tallies", function(){
+	console.log("UPDATE THE TALLIES");
+	update_tallies(); 
+});
+
+on("sheet:opened change:race_size change:armor_type change:has_shield change:skill_light_armor_mod change:skill_heavy_armor_mod change:conmod change:dexmod change:spdmod change:ac_misc change:reflex_misc change:fort_misc change:will_misc", function() {
+	update_defenses(); 
+});
+
+on("sheet:opened change:acrobatics_major change:has_shield change:race_size change:athletics_major change:block_major change:chemistry_major change:control_major change:craft_major change:destruction_major change:disguise_major change:engineering_major change:enhancement_major change:enlightenment_major change:escape_major change:heavy_armor_major change:interaction_major change:knowledge_major change:light_armor_major change:medicine_major change:melee_weapon_major change:perception_major change:ranged_major change:ride_drive_major change:security_major change:sense_motive_major change:sleight_of_hand_major change:survival_major change:stealth_major change:unarmed_combat_major change:utility_major change:race_size change:has_shield change:ride_drive change:ride_drive_mod change:ride_drive_misc change:sense_motive change:sense_motive_mod change:skill_melee_weapon_mod change:skill_melee_weapon_misc change:skill_unarmed_combat_mod change:skill_unarmed_combat_misc change:skill_acrobatics_mod change:skill_acrobatics_misc change:skill_athletics_mod change:skill_athletics_misc change:skill_block_mod change:skill_block_misc change:skill_chemistry_mod change:skill_chemistry_misc change:skill_control_mod change:skill_control_misc change:skill_craft_mod change:skill_craft_misc change:skill_destruction_mod change:skill_destruction_misc change:skill_disguise_mod change:skill_disguise_misc change:skill_engineering_mod change:skill_engineering_misc change:skill_enhancement_mod change:skill_enhancement_misc change:skill_enlightenment_mod change:skill_enlightenment_misc change:skill_escape_mod change:skill_escape_misc change:skill_heavy_armor_mod change:skill_heavy_armor_misc change:skill_interaction_mod change:skill_interaction_misc change:skill_knowledge_mod change:skill_knowledge_misc change:skill_light_armor_mod change:skill_light_armor_misc change:skill_medicine_mod change:skill_medicine_misc change:skill_perception_mod change:skill_perception_misc change:skill_ranged_mod change:skill_ranged_misc change:skill_security_mod change:skill_security_misc change:skill_sleight_of_hand_mod change:skill_sleight_of_hand_misc change:skill_survival_mod change:skill_survival_misc change:skill_stealth_mod change:skill_stealth_misc change:skill_utility_mod change:skill_utility_misc change:conmod change:dexmod change:spdmod change:wismod change:strmod change:intmod change:chamod", function(){
+	update_skills();
+});
+
+on("sheet:opened change:race_size change:has_shield change:ride_drive change:ride_drive_mod change:ride_drive_misc change:sense_motive change:sense_motive_mod change:skill_melee_weapon change:skill_unarmed_combat change:skill_acrobatics change:skill_athletics change:skill_block change:skill_chemistry change:skill_control change:skill_craft change:skill_destruction change:skill_disguise change:skill_engineering change:skill_enhancement change:skill_enlightenment change:skill_escape change:skill_heavy_armor change:skill_interaction change:skill_knowledge change:skill_light_armor change:skill_medicine change:skill_perception change:skill_ranged change:skill_security change:skill_sleight_of_hand change:skill_survival change:skill_stealth change:skill_utility", function(){
+    update_skill_mods();
+}); 
+
+on("sheet:opened change:race_size change:melee_weapon_attack_two_handed change:ranged_attack_two_handed", function() {
+    update_damage_dice();
+});
+
+on("sheet:opened change:repeating_skill:cust_skill_misc change:repeating_skill:cust_skill_tallies change:repeating_skill:cust_skill_major change:repeating_skill:cust_skill_parent_attr change:strength change:constitution change:dexterity change:intelligence change:wisdom change:charisma change:speed change:luck ", function() {
+	update_custom_skills();
+});
+
+on("sheet:opened change:repeating_ability:custom_ability_school_name change:skill_control_mod change:skill_destruction_mod change:skill_enhancement_mod change:skill_utility_mod", function() {
+	update_custom_abilities();
+	update_id("ability");
+});
+
+on("sheet:opened change:repeating_custom_attack:type change:repeating_custom_attack:two_handed change:repeating_custom_attack:range_misc change:repeating_custom_attack:to_hit_misc change:repeating_custom_attack:dam_die_misc change:repeating_custom_attack_dam_misc change:skill_melee_weapon_mod change:skill_ranged_mod change:skill_unarmed_combat_mod", function(){
+	update_custom_attacks();
+}
+
+on("sheet:opened change:abil change:abil_max change:enlightenment_points change:skill_enlightenment_hidden", function() {
+	check_max_bounds();
+});
+
+var update_id = function(name){
+	getSectionIDs("repeating_"+name, function(idarray) {
+		for(var i=0; i < idarray.length; i++) {
+			var attrs ={};
+			attrs['repeating_'+name+'_' + idarray[i] + '_'+name+'_id'] = i;//idarray[i];
+			setAttrs(attrs,{silent:true});
+		}
+	});
+};
+
+var check_max_bounds=function(){
+	getAttrs(["abil","abil_max","enlightenment_points","skill_enlightenment_hidden"], function(values) {
+		var currentAbil=parseInt(values.abil);
+		var currentEnlightenment=parseInt(values.enlightenment_points);
+		var maxAbil=parseInt(values.abil_max);
+		var maxEnlightenment=parseInt(values.skill_enlightenment_hidden);
+		if(currentAbil<0){
+			currentAbil=0;
+		}
+		if(currentEnlightenment<0){
+			currentEnlightenment=0;
+		}
+		if(currentAbil>maxAbil){
+			currentAbil=maxAbil;
+		}
+		if(currentEnlightenment>maxEnlightenment){
+			currentEnlightenment=maxEnlightenment;
+		}
+        setAttrs({
+			abil : currentAbil,
+			enlightenment_points : currentEnlightenment
+        });
+		console.log(values);
+	});
+};
+
+var update_attributes=function(){
+	getAttrs(["Strength", "Constitution", "Dexterity", "Intelligence", "Wisdom", "Charisma", "Speed", "Luck", "carry_weight_misc", "enlightenment_points", "skill_enlightenment_hidden", "abil_enlightenment_misc","repeating_attribute_custom_att_score","hp_misc", "abil_misc", "abil_regen_misc", "style_misc", "movement_misc", "init_misc"], function(values) {
+    //Update Attribute modifiers
+        setAttrs({
+			strmod: Math.floor(values.Strength / 10),
+			conmod: Math.floor(values.Constitution / 10),
+			dexmod: Math.floor(values.Dexterity / 10),
+			intmod: Math.floor(values.Intelligence / 10),
+			wismod: Math.floor(values.Wisdom / 10),
+			chamod: Math.floor(values.Charisma / 10),
+			spdmod: Math.floor(values.Speed / 10),
+			lckmod: Math.floor(values.Luck / 10),
+			//Update secondary attributes
+			HP_max: Math.floor(1.5 * parseInt(values.Constitution) +  parseInt(values.hp_misc)),
+			abil_max: 5 * parseInt(values.Wisdom) + parseInt(values.abil_misc),
+			abil_regen: parseInt(values.Intelligence) + parseInt(values.abil_regen_misc),
+			enlightenment_points_max: parseInt(values.skill_enlightenment_hidden) + parseInt(values.abil_enlightenment_misc),
+			style_max: Math.floor(parseInt(values.Charisma) / 10) + parseInt(values.style_misc),
+			movement: 3 + Math.floor(parseInt(values.Speed) / 10) + parseInt(values.movement_misc),
+			init: Math.floor(parseInt(values.Speed) / 10) + parseInt(values.init_misc),
+			carry_weight_max: parseInt(values.Strength)*4+20 + parseInt(values.carry_weight_misc)
+        });
+		console.log(values);
+	});
+	update_skills(); 
+	update_defenses();
+	update_custom_skills();
+	/*
+	getAttrs(["abil_enlightenment_misc, skill_enlightenment_hidden"], function(values) {
+		
+		setAttrs({
+			enlightenment_points_max: values.skill_enlightenment_hidden + values.abil_enlightenment_misc;
+		});
+	};
+		*/
+};
+
+var update_tallies = function(){
+	var newbigtal = 0;    
+        
+    var new_acrobatics_levels = 0;
+    var new_athletics_levels = 0;
+    var new_block_levels = 0;
+    var new_chemistry_levels = 0;
+    var new_control_levels = 0;
+    var new_craft_levels = 0;
+    var new_destruction_levels = 0;
+    var new_disguise_levels = 0;
+    var new_engineering_levels = 0;
+    var new_enhancement_levels = 0;
+    var new_enlightenment_levels = 0;
+    var new_escape_levels = 0;
+    var new_heavy_armor_levels = 0;
+    var new_interaction_levels = 0;
+    var new_knowledge_levels = 0;
+    var new_light_armor_levels = 0;
+    var new_medicine_levels = 0;
+    var new_melee_weapon_levels = 0;
+    var new_perception_levels = 0;
+    var new_ranged_levels = 0;
+    var new_ride_drive_levels = 0;
+    var new_security_levels = 0;
+    var new_sense_motive_levels = 0;
+    var new_sleight_of_hand_levels = 0;
+    var new_stealth_levels = 0;
+    var new_survival_levels = 0;
+    var new_unarmed_combat_levels = 0;
+    var new_utility_levels = 0;
+	
+	//Retrieve current values
+	getAttrs(["big_tallies", "skill_acrobatics_tallies", "skill_acrobatics_mod", "skill_acrobatics_misc", "skill_athletics_tallies", "skill_athletics_mod", "skill_athletics_misc", "skill_block_tallies", "skill_block_mod", "skill_block_misc", "skill_chemistry_tallies", "skill_chemistry_mod", "skill_chemistry_misc", "skill_control_tallies", "skill_control_mod", "skill_control_misc", "skill_craft_tallies", "skill_craft_mod", "skill_craft_misc", "skill_destruction_tallies", "skill_destruction_mod", "skill_destruction_misc", "skill_disguise_tallies", "skill_disguise_mod", "skill_disguise_misc", "skill_engineering_tallies", "skill_engineering_mod", "skill_engineering_misc", "skill_enhancement_tallies", "skill_enhancement_mod", "skill_enhancement_misc", "skill_enlightenment_tallies", "skill_enlightenment_mod", "skill_enlightenment_misc", "skill_escape_tallies", "skill_escape_mod", "skill_escape_misc", "skill_heavy_armor_tallies", "skill_heavy_armor_mod", "skill_heavy_armor_misc", "skill_interaction_tallies", "skill_interaction_mod", "skill_interaction_misc", "skill_knowledge_tallies", "skill_knowledge_mod", "skill_knowledge_misc", "skill_light_armor_tallies", "skill_light_armor_mod", "skill_light_armor_misc", "skill_medicine_tallies", "skill_medicine_mod", "skill_medicine_misc", "skill_melee_weapon_tallies", "skill_melee_weapon_mod", "skill_melee_weapon_misc", "skill_perception_tallies", "skill_perception_mod", "skill_perception_misc", "skill_ranged_tallies", "skill_ranged_mod", "skill_ranged_misc", "skill_ride_drive_tallies", "skill_ride_drive_mod", "skill_ride_drive_misc", "skill_security_tallies", "skill_security_mod", "skill_security_misc", "skill_sense_motive_tallies", "skill_sense_motive_mod", "skill_sense_motive_misc", "skill_sleight_of_hand_tallies", "skill_sleight_of_hand_mod", "skill_sleight_of_hand_misc", "skill_stealth_tallies", "skill_stealth_mod", "skill_stealth_misc", "skill_survival_tallies", "skill_survival_mod", "skill_survival_misc", "skill_unarmed_combat_tallies", "skill_unarmed_combat_mod", "skill_unarmed_combat_misc", "skill_utility_tallies", "skill_utility_mod", "skill_utility_misc", "skill_ride_drive_hidden", "skill_acrobatics_hidden", "skill_sense_motive_hidden", "skill_melee_weapon_hidden", "skill_athletics_hidden", "skill_unarmed_combat_hidden", "skill_block_hidden", "skill_chemistry_hidden", "skill_control_hidden", "skill_craft_hidden", "skill_destruction_hidden", "skill_disguise_hidden", "skill_engineering_hidden", "skill_enhancement_hidden", "skill_enlightenment_hidden", "skill_escape_hidden", "skill_heavy_armor_hidden", "skill_interaction_hidden", "skill_knowledge_hidden", "skill_light_armor_hidden", "skill_medicine_hidden", "skill_perception_hidden", "skill_ranged_hidden", "skill_security_hidden", "skill_sleight_of_hand_hidden", "skill_survival_hidden", "skill_stealth_hidden", "skill_utility_hidden"],function(values){
+		var temp_tal_acrobatics = values.skill_acrobatics_tallies;
+		var temp_tal_athletics = values.skill_athletics_tallies;
+		var temp_tal_block = values.skill_block_tallies;
+		var temp_tal_chemistry = values.skill_chemistry_tallies;
+		var temp_tal_control = values.skill_control_tallies;
+		var temp_tal_craft = values.skill_craft_tallies;
+		var temp_tal_destruction = values.skill_destruction_tallies;
+		var temp_tal_disguise = values.skill_disguise_tallies;
+		var temp_tal_engineering = values.skill_engineering_tallies;
+		var temp_tal_enhancement = values.skill_enhancement_tallies;
+		var temp_tal_enlightenment = values.skill_enlightenment_tallies;
+		var temp_tal_escape = values.skill_escape_tallies;
+		var temp_tal_heavy_armor = values.skill_heavy_armor_tallies;
+		var temp_tal_interaction = values.skill_interaction_tallies;
+		var temp_tal_knowledge = values.skill_knowledge_tallies;
+		var temp_tal_light_armor = values.skill_light_armor_tallies;
+		var temp_tal_medicine = values.skill_medicine_tallies;
+		var temp_tal_melee_weapon = values.skill_melee_weapon_tallies;
+		var temp_tal_perception = values.skill_perception_tallies;
+		var temp_tal_ranged = values.skill_ranged_tallies;
+		var temp_tal_ride_drive = values.skill_ride_drive_tallies;
+		var temp_tal_security = values.skill_security_tallies;
+		var temp_tal_sense_motive = values.skill_sense_motive_tallies;
+		var temp_tal_sleight_of_hand = values.skill_sleight_of_hand_tallies;
+		var temp_tal_stealth = values.skill_stealth_tallies;
+		var temp_tal_survival = values.skill_survival_tallies;
+		var temp_tal_unarmed_combat = values.skill_unarmed_combat_tallies;
+		var temp_tal_utility = values.skill_utility_tallies;
+	
+		var looping = true;
+		
+		//Loop through until all skills finish tallying
+		while(looping){
+			var mod;
+			var loopflag = false;
+			
+			mod = parseInt(temp_tal_acrobatics / Math.max(Math.floor((parseInt(values.skill_acrobatics_hidden) + new_acrobatics_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_acrobatics -= Math.max(Math.floor((parseInt(values.skill_acrobatics_hidden) + new_acrobatics_levels)/10),1);
+				new_acrobatics_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_athletics / Math.max(Math.floor((parseInt(values.skill_athletics_hidden) + new_athletics_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_athletics -= Math.max(Math.floor((parseInt(values.skill_athletics_hidden) + new_athletics_levels)/10),1);
+				new_athletics_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_block / Math.max(Math.floor((parseInt(values.skill_block_hidden) + new_block_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_block -= Math.max(Math.floor((parseInt(values.skill_block_hidden) + new_block_levels)/10),1)
+				new_block_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_chemistry / Math.max(Math.floor((parseInt(values.skill_chemistry_hidden) + new_chemistry_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_chemistry -= Math.max(Math.floor((parseInt(values.skill_chemistry_hidden) + new_chemistry_levels)/10),1);
+				new_chemistry_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_control / Math.max(Math.floor((parseInt(values.skill_control_hidden) + new_control_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_control -= Math.max(Math.floor((parseInt(values.skill_control_hidden) + new_control_levels)/10),1);
+				new_control_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_craft / Math.max(Math.floor((parseInt(values.skill_craft_hidden) + new_craft_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_acrobatics -= Math.max(Math.floor((parseInt(values.skill_craft_hidden) + new_craft_levels)/10),1);
+				new_acrobatics_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_destruction / Math.max(Math.floor((parseInt(values.skill_destruction_hidden) + new_destruction_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_destruction -= Math.max(Math.floor((parseInt(values.skill_destruction_hidden) + new_destruction_levels)/10),1);
+				new_destruction_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_disguise / Math.max(Math.floor((parseInt(values.skill_disguise_hidden) + new_disguise_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_disguise -= Math.max(Math.floor((parseInt(values.skill_disguise_hidden) + new_disguise_levels)/10),1);
+				new_disguise_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_engineering / Math.max(Math.floor((parseInt(values.skill_engineering_hidden) + new_engineering_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_engineering -= Math.max(Math.floor((parseInt(values.skill_engineering_hidden) + new_engineering_levels)/10),1);
+				new_engineering_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_enhancement / Math.max(Math.floor((parseInt(values.skill_enhancement_hidden) + new_enhancement_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_enhancement -= Math.max(Math.floor((parseInt(values.skill_enhancement_hidden) + new_enhancement_levels)/10),1);
+				new_enhancement_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_enlightenment / Math.max(Math.floor((parseInt(values.skill_enlightenment_hidden) + new_enlightenment_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_enlightenment -= Math.max(Math.floor((parseInt(values.skill_enlightenment_hidden) + new_enlightenment_levels)/10),1);
+				new_enlightenment_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_escape / Math.max(Math.floor((parseInt(values.skill_escape_hidden) + new_escape_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_escape -= Math.max(Math.floor((parseInt(values.skill_escape_hidden) + new_escape_levels)/10),1);
+				new_escape_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_heavy_armor / Math.max(Math.floor((parseInt(values.skill_heavy_armor_hidden) + new_heavy_armor_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_heavy_armor -= Math.max(Math.floor((parseInt(values.skill_heavy_armor_hidden) + new_heavy_armor_levels)/10),1);
+				new_heavy_armor_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_interaction / Math.max(Math.floor((parseInt(values.skill_interaction_hidden) + new_interaction_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_interaction -= Math.max(Math.floor((parseInt(values.skill_interaction_hidden) + new_interaction_levels)/10),1);
+				new_interaction_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_knowledge / Math.max(Math.floor((parseInt(values.skill_knowledge_hidden) + new_knowledge_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_knowledge -= Math.max(Math.floor((parseInt(values.skill_knowledge_hidden) + new_knowledge_levels)/10),1);
+				new_knowledge_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_light_armor / Math.max(Math.floor((parseInt(values.skill_light_armor_hidden) + new_light_armor_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_light_armor -= Math.max(Math.floor((parseInt(values.skill_light_armor_hidden) + new_light_armor_levels)/10),1);
+				new_light_armor_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_medicine / Math.max(Math.floor((parseInt(values.skill_medicine_hidden) + new_medicine_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_medicine -= Math.max(Math.floor((parseInt(values.skill_medicine_hidden) + new_medicine_levels)/10),1);
+				new_medicine_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_melee_weapon / Math.max(Math.floor((parseInt(values.skill_melee_weapon_hidden) + new_melee_weapon_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_melee_weapon -= Math.max(Math.floor((parseInt(values.skill_melee_weapon_hidden) + new_melee_weapon_levels)/10),1);
+				new_melee_weapon_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_perception / Math.max(Math.floor((parseInt(values.skill_perception_hidden) + new_perception_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_perception -= Math.max(Math.floor((parseInt(values.skill_perception_hidden) + new_perception_levels)/10),1);
+				new_perception_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_ranged / Math.max(Math.floor((parseInt(values.skill_ranged_hidden) + new_ranged_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_range -= Math.max(Math.floor((parseInt(values.skill_ranged_hidden) + new_ranged_levels)/10),1);
+				new_range_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_ride_drive / Math.max(Math.floor((parseInt(values.skill_ride_drive_hidden) + new_ride_drive_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_ride_drive -= Math.max(Math.floor((parseInt(values.skill_ride_drive_hidden) + new_ride_drive_levels)/10),1);
+				new_ride_drive_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_security / Math.max(Math.floor((parseInt(values.skill_security_hidden) + new_security_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_security -= Math.max(Math.floor((parseInt(values.skill_security_hidden) + new_security_levels)/10),1);
+				new_security_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_sense_motive / Math.max(Math.floor((parseInt(values.skill_sense_motive_hidden) + new_sense_motive_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_sense_motive -=  Math.max(Math.floor((parseInt(values.skill_sense_motive_hidden) + new_sense_motive_levels)/10),1);
+				new_sense_motive_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_sleight_of_hand / Math.max(Math.floor((parseInt(values.skill_sleight_of_hand_hidden) + new_sleight_of_hand_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_sleight_of_hand -= Math.max(Math.floor((parseInt(values.skill_sleight_of_hand_hidden) + new_sleight_of_hand_levels)/10),1);
+				new_sleight_of_hand_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_stealth / Math.max(Math.floor((parseInt(values.skill_stealth_hidden) + new_stealth_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_stealth -= Math.max(Math.floor((parseInt(values.skill_stealth_hidden) + new_stealth_levels)/10),1);
+				new_stealth_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_survival / Math.max(Math.floor((parseInt(values.skill_survival_hidden) + new_survival_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_survival -= Math.max(Math.floor((parseInt(values.skill_survival_hidden) + new_survival_levels)/10),1);
+				new_survival_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_unarmed_combat / Math.max(Math.floor((parseInt(values.skill_unarmed_combat_hidden) + new_unarmed_combat_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_unarmed_combat -= Math.max(Math.floor((parseInt(values.skill_unarmed_combat_hidden) + new_unarmed_combat_levels)/10),1);
+				new_unarmed_combat_levels += 1;
+				newbigtal += 1;
+			}
+			
+			mod = parseInt(temp_tal_utility / Math.max(Math.floor((parseInt(values.skill_utility_hidden) + new_utility_levels)/10),1));
+			if(mod > 0){
+				if(mod>1){
+					loopflag = true;
+				}
+				temp_tal_utility -= Math.max(Math.floor((parseInt(values.skill_utility_hidden) + new_utility_levels)/10),1);
+				new_utility_levels += 1;
+				newbigtal += 1;
+			}
+			
+			looping = loopflag;
+		}
+		
+		//Set new values
+		setAttrs({
+			//big_tallies:newbigtal + parseInt(values.big_tallies),
+			skill_acrobatics_misc: parseInt(values.skill_acrobatics_misc) + new_acrobatics_levels,
+			skill_acrobatics_tallies: temp_tal_acrobatics,
+			skill_athletics_misc: parseInt(values.skill_athletics_misc) + new_athletics_levels,
+			skill_athletics_tallies: temp_tal_athletics,
+			skill_block_misc: parseInt(values.skill_block_misc) + new_block_levels,
+			skill_block_tallies: temp_tal_block,
+			skill_chemistry_misc: parseInt(values.skill_chemistry_misc) + new_chemistry_levels,
+			skill_chemistry_tallies: temp_tal_chemistry,
+			skill_control_misc: parseInt(values.skill_control_misc) + new_control_levels,
+			skill_control_tallies: temp_tal_control,
+			skill_craft_misc: parseInt(values.skill_craft_misc) + new_craft_levels,
+			skill_craft_tallies: temp_tal_craft,
+			skill_destruction_misc: parseInt(values.skill_destruction_misc) + new_destruction_levels,
+			skill_destruction_tallies: temp_tal_destruction,
+			skill_disguise_misc: parseInt(values.skill_disguise_misc) + new_disguise_levels,
+			skill_disguise_tallies: temp_tal_disguise,
+			skill_engineering_misc: parseInt(values.skill_engineering_misc) + new_engineering_levels,
+			skill_engineering_tallies: temp_tal_engineering,
+			skill_enhancement_misc: parseInt(values.skill_enhancement_misc) + new_enhancement_levels,
+			skill_enhancement_tallies: temp_tal_enhancement,
+			skill_enlightenment_misc: parseInt(values.skill_enlightenment_misc) + new_enlightenment_levels,
+			skill_enlightenment_tallies: temp_tal_enlightenment,
+			skill_escape_misc: parseInt(values.skill_escape_misc) + new_escape_levels,
+			skill_escape_tallies: temp_tal_escape,
+			skill_heavy_armor_misc: parseInt(values.skill_heavy_armor_misc) + new_heavy_armor_levels,
+			skill_heavy_armor_tallies: temp_tal_heavy_armor,
+			skill_interaction_misc: parseInt(values.skill_interaction_misc) + new_interaction_levels,
+			skill_interaction_tallies: temp_tal_interaction,
+			skill_knowledge_misc: parseInt(values.skill_knowledge_misc) + new_knowledge_levels,
+			skill_knowledge_tallies: temp_tal_knowledge,
+			skill_light_armor_misc: parseInt(values.skill_light_armor_misc) + new_light_armor_levels,
+			skill_light_armor_tallies: temp_tal_light_armor,
+			skill_medicine_misc: parseInt(values.skill_medicine_misc) + new_medicine_levels,
+			skill_medicine_tallies: temp_tal_medicine,
+			skill_melee_weapon_misc: parseInt(values.skill_melee_weapon_misc) + new_melee_weapon_levels,
+			skill_melee_weapon_tallies: temp_tal_melee_weapon,
+			skill_perception_misc: parseInt(values.skill_perception_misc) + new_perception_levels,
+			skill_perception_tallies: temp_tal_perception,
+			skill_ranged_misc: parseInt(values.skill_ranged_misc) + new_ranged_levels,
+			skill_ranged_tallies: temp_tal_ranged,
+			skill_ride_drive_misc: parseInt(values.skill_ride_drive_misc) + new_ride_drive_levels,
+			skill_ride_drive_tallies: temp_tal_ride_drive,
+			skill_security_misc: parseInt(values.skill_security_misc) + new_security_levels,
+			skill_security_tallies: temp_tal_security,
+			skill_sense_motive_misc: parseInt(values.skill_sense_motive_misc) + new_sense_motive_levels,
+			skill_sense_motive_tallies: temp_tal_sense_motive,
+			skill_sleight_of_hand_misc: parseInt(values.skill_sleight_of_hand_misc) + new_sleight_of_hand_levels,
+			skill_sleight_of_hand_tallies: temp_tal_sleight_of_hand,
+			skill_stealth_misc: parseInt(values.skill_stealth_misc) + new_stealth_levels,
+			skill_stealth_tallies: temp_tal_stealth,
+			skill_survival_misc: parseInt(values.skill_survival_misc) + new_survival_levels,
+			skill_survival_tallies: temp_tal_survival,
+			skill_unarmed_combat_misc: parseInt(values.skill_unarmed_combat_misc) + new_unarmed_combat_levels,
+			skill_unarmed_combat_tallies: temp_tal_unarmed_combat,
+			skill_utility_misc: parseInt(values.skill_utility_misc) + new_utility_levels,
+			skill_utility_tallies: temp_tal_utility
+		});
+		//Update associated values
+		update_skills();
+	
+	});
+}
+	
+var update_custom_skills=function(){
+	getAttrs(["strmod", "conmod", "dexmod", "intmod", "wismod", "chamod", "spdmod", "lckmod", "repeating_skill_cust_skill_misc", "repeating_skill_cust_skill_parent_attr", "repeating_skill_cust_skill_major", "repeating_skill_cust_skill_tallies" ], function(values) {
+	
+		var attrBonus = 0;	
+		var baseBonus = 10;
+		var miscBonus = parseInt(values.repeating_skill_cust_skill_misc);
+		var remainingTallies = parseInt(values.repeating_skill_cust_skill_tallies);
+		
+		//Handle base calculations	
+		if(values.repeating_skill_cust_skill_major == 'on'){
+			baseBonus = 25;
+		}
+		//Add parent attribute bonus
+		switch(values.repeating_skill_cust_skill_parent_attr){
+			case 'str':
+				attrBonus += parseInt(values.strmod);
+				break;
+			case 'con':
+				attrBonus += parseInt(values.conmod);
+			   break;
+			case 'dex':
+				attrBonus += parseInt(values.dexmod);
+			   break;
+			case 'int':
+				attrBonus += parseInt(values.intmod);
+				break;
+			case 'wis':
+				attrBonus += parseInt(values.wismod);
+				break;
+			case 'cha':
+				attrBonus += parseInt(values.chamod);
+				break;
+			case 'spd':
+				attrBonus += parseInt(values.spdmod);
+				break;
+			case 'lck':
+				attrBonus += parseInt(values.lckmod);
+				break;
+		}
+		
+		//Compute current values
+		var currentScore = baseBonus + attrBonus + miscBonus;
+		var currentMod = Math.max(Math.floor(currentScore/10),1);
+		
+		//Compute tally change and bonus, recalculate current values
+		while(remainingTallies-currentMod >=0 && remainingTallies!=0){
+			remainingTallies -= currentMod;
+			miscBonus++;
+			currentScore = baseBonus + attrBonus + miscBonus;
+			currentMod = Math.max(Math.floor(currentScore/10),1);
+		}
+
+		setAttrs({
+			"repeating_skill_cust_skill_score": currentScore,
+			"repeating_skill_cust_skill_mod": currentMod,
+			"repeating_skill_cust_skill_misc": miscBonus,
+			"repeating_skill_cust_skill_tallies": remainingTallies
+		});
+	});
+}
+
+var update_custom_abilities=function(){
+  getAttrs(["repeating_ability_custom_ability_school_name", "skill_control_mod", "skill_destruction_mod", "skill_enhancement_mod", "skill_utility_mod"], function(values) {
+     //Update Attribute modifiers
+    
+    var attrBonus = 0;
+	
+    switch(values.repeating_ability_custom_ability_school_name){
+        case 'Control':
+            attrBonus = values.skill_control_mod
+            break;
+        case 'Destruction':
+            attrBonus = values.skill_destruction_mod
+			break;
+        case 'Enhancement':
+            attrBonus = values.skill_enhancement_mod
+			break;
+        case 'Utility':
+            attrBonus = values.skill_utility_mod
+            break;
+		default:
+			attrBonus = 0;
+			break;
+    }
+	setAttrs({
+	  "repeating_ability_custom_ability_to_hit": parseInt(attrBonus),
+	  "repeating_ability_custom_ability_dam": parseInt(attrBonus)
+	});
+   });
+}
+
+var update_custom_attacks=function(){
+  getAttrs(["repeating_custom_attack_type", "repeating_custom_attack_two_handed", "repeating_custom_attack_range_misc", "repeating_custom_attack_to_hit_misc", "repeating_custom_attack_dam_die_misc", "repeating_custom_attack_dam_misc", "skill_melee_weapon_mod", "skill_ranged_mod", "skill_unarmed_combat_mod"], function(values) {
+     //Update Attribute modifiers
+    
+    var base_damage_die = 0;
+	var base_range = 0;
+	var base_to_hit = 0;
+	var base_dam = 0;
+	
+    switch(values.repeating_custom_attack_type){
+        case 'Melee Weapon':
+            base_damage_die = 4;
+			base_range = 1;
+			base_to_hit = parseInt(values.skill_melee_weapon_mod);
+			base_dam = parseInt(values.skill_melee_weapon_mod);
+            break;
+        case 'Ranged Weapon':
+            base_damage_die = 4;
+			base_range = 2*parseInt(values.skill_ranged_mod);
+			base_to_hit = parseInt(values.skill_ranged_mod);
+			base_dam = parseInt(values.skill_ranged_mod);
+			break;
+        case 'Unarmed Combat':
+            base_damage_die = 2;
+			base_range = 1;
+			base_to_hit = parseInt(values.skill_unarmed_combat_mod);
+			base_dam = parseInt(values.skill_unarmed_combat_mod);
+            break;
+		default:
+			base_damage_die = 0;
+			base_range = 0;
+			base_to_hit = 0;
+			base_dam = 0;
+			break;
+    }
+	
+	setAttrs({
+	  "repeating_custom_attack_to_hit_total": base_to_hit + parseInt(values.repeating_custom_attack_to_hit_misc),
+	  "repeating_custom_attack_dam_die_total": base_damage_die + parseInt(values.repeating_custom_attack_dam_die_misc),
+	  "repeating_custom_attack_dam_total": base_dam + parseInt(values.repeating_custom_attack_dam_misc),
+	  "repeating_custom_attack_range_total": base_range + parseInt(values.repeating_custom_attack_range_misc)
+	});
+   });
+}
+
+var update_skills=function(){
+     getAttrs(["race_size", "has_shield", "acrobatics_major", "athletics_major", "block_major", "chemistry_major", "control_major", "craft_major", "destruction_major", "disguise_major", "engineering_major", "enhancement_major", "enlightenment_major", "escape_major", "heavy_armor_major", "interaction_major", "knowledge_major", "light_armor_major", "medicine_major", "melee_weapon_major", "perception_major", "ranged_major", "ride_drive_major", "security_major", "sense_motive_major", "sleight_of_hand_major", "survival_major", "stealth_major", "unarmed_combat_major", "utility_major", "race_size", "has_shield", "skill_ride_drive", "skill_ride_drive_mod", "skill_ride_drive_misc",  "skill_acrobatics_mod", "skill_acrobatics_misc", "skill_sense_motive", "skill_sense_motive_mod", "skill_sense_motive_misc", "skill_melee_weapon", "skill_melee_weapon_mod", "skill_melee_weapon_misc",  "skill_athletics_mod", "skill_athletics_misc", "skill_unarmed_combat", "skill_unarmed_combat_mod", "skill_unarmed_combat_misc",  "skill_block_mod", "skill_block_misc",  "skill_chemistry_mod", "skill_chemistry_misc",  "skill_control_mod", "skill_control_misc",  "skill_craft_mod", "skill_craft_misc",  "skill_destruction_mod", "skill_destruction_misc",  "skill_disguise_mod", "skill_disguise_misc",  "skill_engineering_mod", "skill_engineering_misc",  "skill_enhancement_mod", "skill_enhancement_misc",  "skill_enlightenment_mod", "skill_enlightenment_misc",  "skill_escape_mod", "skill_escape_misc", "skill_heavy_armor", "skill_heavy_armor_mod", "skill_heavy_armor_misc",  "skill_interaction_mod", "skill_interaction_misc",  "skill_knowledge_mod", "skill_knowledge_misc", "skill_light_armor", "skill_light_armor_mod", "skill_light_armor_misc",  "skill_medicine_mod", "skill_medicine_misc",  "skill_perception_mod", "skill_perception_misc",  "skill_ranged_mod", "skill_ranged_misc",  "skill_security_mod", "skill_security_misc", "skill_sleight_of_hand", "skill_sleight_of_hand_mod", "skill_sleight_of_hand_misc",  "skill_survival_mod", "skill_survival_misc",  "skill_stealth_mod", "skill_stealth_misc",  "skill_utility_mod", "skill_utility_misc", "conmod", "dexmod", "spdmod", "wismod", "strmod", "intmod", "chamod"], function(values) {
+             
+        var acrobatics_base = 10;
+        if(values.acrobatics_major == 'on'){
+        	acrobatics_base = 25;
+        }
+        var athletics_base = 10;
+        if(values.athletics_major == 'on'){
+        	athletics_base = 25;
+        }
+        var block_base = 10;
+        if(values.block_major == 'on'){
+        	block_base = 25;
+        }
+        var chemistry_base = 10;
+        if(values.chemistry_major == 'on'){
+        	chemistry_base = 25;
+        }
+        var control_base = 10;
+        if(values.control_major == 'on'){
+        	control_base = 25;
+        }
+        var craft_base = 10;
+        if(values.craft_major == 'on'){
+        	craft_base = 25;
+        }
+        var destruction_base = 10;
+        if(values.destruction_major == 'on'){
+        	destruction_base = 25;
+        }
+        var disguise_base = 10;
+        if(values.disguise_major == 'on'){
+        	disguise_base = 25;
+        }
+        var engineering_base = 10;
+        if(values.engineering_major == 'on'){
+        	engineering_base = 25;
+        }
+        var enhancement_base = 10;
+        if(values.enhancement_major == 'on'){
+        	enhancement_base = 25;
+        }
+        var enlightenment_base = 10;
+        if(values.enlightenment_major == 'on'){
+        	enlightenment_base = 25;
+        }
+        var escape_base = 10;
+        if(values.escape_major == 'on'){
+        	escape_base = 25;
+        }
+        var heavy_armor_base = 10;
+        if(values.heavy_armor_major == 'on'){
+        	heavy_armor_base = 25;
+        }
+        var interaction_base = 10;
+        if(values.interaction_major == 'on'){
+        	interaction_base = 25;
+        }
+        var knowledge_base = 10;
+        if(values.knowledge_major == 'on'){
+        	knowledge_base = 25;
+        }
+        var light_armor_base = 10;
+        if(values.light_armor_major == 'on'){
+        	light_armor_base = 25;
+        }
+        var medicine_base = 10;
+        if(values.medicine_major == 'on'){
+        	medicine_base = 25;
+        }
+        var melee_weapon_base = 10;
+        if(values.melee_weapon_major == 'on'){
+        	melee_weapon_base = 25;
+        }
+        var perception_base = 10;
+        if(values.perception_major == 'on'){
+        	perception_base = 25;
+        }
+        var ranged_base = 10;
+        if(values.ranged_major == 'on'){
+        	ranged_base = 25;
+        }
+        var ride_drive_base = 10;
+        if(values.ride_drive_major == 'on'){
+        	ride_drive_base = 25;
+        }
+        var security_base = 10;
+        if(values.security_major == 'on'){
+        	security_base = 25;
+        }
+        var sense_motive_base = 10;
+        if(values.sense_motive_major == 'on'){
+        	sense_motive_base = 25;
+        }
+        var sleight_of_hand_base = 10;
+        if(values.sleight_of_hand_major == 'on'){
+        	sleight_of_hand_base = 25;
+        }
+        var survival_base = 10;
+        if(values.survival_major == 'on'){
+        	survival_base = 25;
+        }
+        var stealth_base = 10;
+        if(values.stealth_major == 'on'){
+        	stealth_base = 25;
+        }
+        var unarmed_combat_base = 10;
+        if(values.unarmed_combat_major == 'on'){
+        	unarmed_combat_base = 25;
+        }
+        var utility_base = 10;
+        if(values.utility_major == 'on'){
+        	utility_base = 25;
+        }
+        
+          var stealthbonus = 0;
+          switch(values.race_size){
+              case 'medium':
+              stealthbonus = 0;
+              break;
+          case 'large':
+              stealthbonus = -5;
+              break;
+          case 'small':
+              stealthbonus = 5;
+              break;
+          }
+          
+          var blockbonus = 0;
+          if(values.has_shield == "on"){
+              blockbonus = 5;
+          }
+    
+    
+        setAttrs({
+            skill_acrobatics_hidden: acrobatics_base + parseInt(values.dexmod) + parseInt(values.skill_acrobatics_misc),
+            skill_athletics_hidden: athletics_base + parseInt(values.strmod) + parseInt(values.skill_athletics_misc),
+            skill_block_hidden: block_base + parseInt(values.spdmod) + parseInt(values.skill_block_misc) + blockbonus,
+            skill_chemistry_hidden: chemistry_base + parseInt(values.intmod) + parseInt(values.skill_chemistry_misc),
+            skill_control_hidden: control_base + parseInt(values.wismod) + parseInt(values.skill_control_misc),
+            skill_craft_hidden: craft_base + parseInt(values.intmod) + parseInt(values.skill_craft_misc),
+            skill_destruction_hidden: destruction_base + parseInt(values.wismod) + parseInt(values.skill_destruction_misc),
+            skill_disguise_hidden: disguise_base + parseInt(values.chamod) + parseInt(values.skill_disguise_misc),
+            skill_engineering_hidden: engineering_base + parseInt(values.intmod) + parseInt(values.skill_engineering_misc),
+            skill_enhancement_hidden: enhancement_base + parseInt(values.wismod) + parseInt(values.skill_enhancement_misc),
+            skill_enlightenment_hidden: enlightenment_base + parseInt(values.chamod) + parseInt(values.skill_enlightenment_misc),
+            skill_escape_hidden: escape_base + parseInt(values.dexmod) + parseInt(values.skill_escape_misc),
+            skill_heavy_armor_hidden: heavy_armor_base + parseInt(values.conmod) + parseInt(values.skill_heavy_armor_misc),
+            skill_interaction_hidden: interaction_base + parseInt(values.chamod) + parseInt(values.skill_interaction_misc),
+            skill_knowledge_hidden: knowledge_base + parseInt(values.intmod) + parseInt(values.skill_knowledge_misc),
+            skill_light_armor_hidden: light_armor_base + parseInt(values.spdmod) + parseInt(values.skill_light_armor_misc),
+            skill_medicine_hidden: medicine_base + parseInt(values.wismod) + parseInt(values.skill_medicine_misc),
+            skill_melee_weapon_hidden: melee_weapon_base + parseInt(values.strmod) + parseInt(values.skill_melee_weapon_misc),
+            skill_perception_hidden: perception_base + parseInt(values.wismod) + parseInt(values.skill_perception_misc),
+            skill_ranged_hidden: ranged_base + parseInt(values.dexmod) + parseInt(values.skill_ranged_misc),
+            skill_ride_drive_hidden: ride_drive_base + parseInt(values.dexmod) + parseInt(values.skill_ride_drive_misc),
+            skill_security_hidden: security_base + parseInt(values.strmod) + parseInt(values.skill_security_misc),
+            skill_sense_motive_hidden: sense_motive_base + parseInt(values.wismod) + parseInt(values.skill_sense_motive_misc),
+            skill_sleight_of_hand_hidden: sleight_of_hand_base + parseInt(values.dexmod) + parseInt(values.skill_sleight_of_hand_misc),
+            skill_survival_hidden: survival_base + parseInt(values.wismod) + parseInt(values.skill_survival_misc),
+            skill_stealth_hidden: stealth_base + parseInt(values.dexmod) + parseInt(values.skill_stealth_misc) + stealthbonus,
+            skill_unarmed_combat_hidden: unarmed_combat_base + parseInt(values.strmod) + parseInt(values.skill_unarmed_combat_misc),
+            skill_utility_hidden: utility_base + parseInt(values.wismod) + parseInt(values.skill_utility_misc)
+         });
+             
+    });
+    
+    update_skill_mods();
+     
+}
+
+var update_skill_mods=function(){
+    getAttrs(["skill_ride_drive_hidden", "skill_acrobatics_hidden", "skill_sense_motive_hidden", "skill_melee_weapon_hidden", "skill_athletics_hidden", "skill_unarmed_combat_hidden", "skill_block_hidden", "skill_chemistry_hidden", "skill_control_hidden", "skill_craft_hidden", "skill_destruction_hidden", "skill_disguise_hidden", "skill_engineering_hidden", "skill_enhancement_hidden", "skill_enlightenment_hidden", "skill_escape_hidden", "skill_heavy_armor_hidden", "skill_interaction_hidden", "skill_knowledge_hidden", "skill_light_armor_hidden", "skill_medicine_hidden", "skill_perception_hidden", "skill_ranged_hidden", "skill_security_hidden", "skill_sleight_of_hand_hidden", "skill_survival_hidden", "skill_stealth_hidden", "skill_utility_hidden"], function(values) {
+   
+     setAttrs({
+            skill_acrobatics_mod:Math.floor(values.skill_acrobatics_hidden/10),
+            skill_athletics_mod:Math.floor(values.skill_athletics_hidden/10),
+            skill_block_mod:Math.floor(values.skill_block_hidden/10),
+            skill_chemistry_mod:Math.floor(values.skill_chemistry_hidden/10),
+            skill_control_mod:Math.floor(values.skill_control_hidden/10),
+            skill_craft_mod:Math.floor(values.skill_craft_hidden/10),
+            skill_destruction_mod:Math.floor(values.skill_destruction_hidden/10),
+            skill_disguise_mod:Math.floor(values.skill_disguise_hidden/10),
+            skill_engineering_mod:Math.floor(values.skill_engineering_hidden/10),
+            skill_enhancement_mod:Math.floor(values.skill_enhancement_hidden/10),
+            skill_enlightenment_mod:Math.floor(values.skill_enlightenment_hidden/10),
+            skill_escape_mod:Math.floor(values.skill_escape_hidden/10),
+            skill_heavy_armor_mod:Math.floor(values.skill_heavy_armor_hidden/10),
+            skill_interaction_mod:Math.floor(values.skill_interaction_hidden/10),
+            skill_knowledge_mod:Math.floor(values.skill_knowledge_hidden/10),
+            skill_light_armor_mod:Math.floor(values.skill_light_armor_hidden/10),
+            skill_medicine_mod:Math.floor(values.skill_medicine_hidden/10),
+            skill_melee_weapon_mod:Math.floor(values.skill_melee_weapon_hidden/10),
+            skill_perception_mod:Math.floor(values.skill_perception_hidden/10),
+            skill_ranged_mod:Math.floor(values.skill_ranged_hidden/10),
+            skill_ride_drive_mod:Math.floor(values.skill_ride_drive_hidden/10),
+            skill_security_mod:Math.floor(values.skill_security_hidden/10),
+            skill_sense_motive_mod:Math.floor(values.skill_sense_motive_hidden/10),
+            skill_sleight_of_hand_mod:Math.floor(values.skill_sleight_of_hand_hidden/10),
+            skill_survival_mod:Math.floor(values.skill_survival_hidden/10),
+            skill_stealth_mod:Math.floor(values.skill_stealth_hidden/10),
+            skill_unarmed_combat_mod:Math.floor(values.skill_unarmed_combat_hidden/10),
+            skill_utility_mod:Math.floor(values.skill_utility_hidden/10)
+         });
+   
+    });
+}
+
+var update_damage_dice = function(){
+    getAttrs(["race_size", "melee_weapon_attack_two_handed", "ranged_attack_two_handed"], function(values){
+        
+        var meleedam = 4;
+        var rangeddam = 4;
+        var unarmeddam = 2;
+        
+        var dam_size_mod = 0;
+        
+          switch(values.race_size){
+              case 'medium':
+              dam_size_mod = 0;
+              break;
+          case 'large':
+              dam_size_mod = 2;
+              break;
+          case 'small':
+              dam_size_mod = -2;
+              break;
+          }
+          
+        meleedam += dam_size_mod;
+        rangeddam += dam_size_mod;
+        unarmeddam += dam_size_mod;
+        
+        if(values.melee_weapon_attack_two_handed == "on"){
+            meleedam += 2;
+        }
+        if(values.ranged_attack_two_handed == "on"){
+            rangeddam += 2;
+        }
+        
+        if(meleedam < 1){
+            meleedam = 1;
+        }
+        if(rangeddam < 1){
+            rangeddam = 1;
+        }
+        if(unarmeddam < 1){
+            unarmeddam = 1;
+        }
+           setAttrs({
+            base_damage_die_ranged: rangeddam,
+            base_damage_die_unarmed:unarmeddam,
+            base_damage_die_melee:meleedam
+         });
+    });
+}
+
+var update_defenses=function(){
+    getAttrs(["race_size", "armor_type", "has_shield", "skill_light_armor_mod", "skill_heavy_armor_mod", "conmod", "dexmod", "spdmod", "wismod", "ac_misc", "reflex_misc", "fort_misc", "will_misc","ac_misc"], function(values) {
+          var acval = 0;
+          var greaterVal = Math.max(parseInt(values.spdmod),parseInt(values.dexmod)); //Greater of speed / dex mods
+          var shieldBonus = values.has_shield == 'on' ? 1 : 0
+          
+          
+          //Reflex
+          var refval = 0;
+          var ref_size_mod = 0;
+          switch(values.race_size){
+              case 'medium':
+              ref_size_mod = 0;
+              break;
+          case 'large':
+              ref_size_mod = -1;
+              break;
+          case 'small':
+              ref_size_mod = 1;
+              break;
+          }
+
+          if(values.armor_type == 'Heavy'){
+              acval = 12 + parseInt(values.skill_heavy_armor_mod) + parseInt(values.conmod) + parseInt(shieldBonus);
+              
+              refval = Math.floor(5 + parseInt(values.dexmod) + parseInt(values.skill_heavy_armor_mod) / 2);
+          }
+          else if(values.armor_type == 'Light'){
+              acval = 7 + greaterVal + parseInt(values.skill_light_armor_mod) + shieldBonus;
+              
+              refval = Math.floor(10 + parseInt(values.dexmod));
+          }
+          
+          setAttrs({
+            ac: acval+parseInt(values.ac_misc),
+            reflex: refval + ref_size_mod+parseInt(values.reflex_misc),
+            fort: 10 + parseInt(values.conmod)+parseInt(values.fort_misc),
+            will: 10 + parseInt(values.wismod)+parseInt(values.will_misc)
+        });
+    });
+}
+
+</script>
+
+
+<!--Roll templates-->
+<rolltemplate class="sheet-rolltemplate-5eDefault">
+
+    <div class="sheet-rt-card">
+
+		<div class="sheet-rt-header{{#weapon}} sheet-weapon{{/weapon}}{{#spell}}  sheet-spell{{/spell}}{{#ability}} sheet-ability{{/ability}}{{#save}} sheet-save{{/save}}{{#deathsave}} sheet-deathsave{{/deathsave}}">
+
+			<div class="sheet-rt-title">{{title}}</div>
+			{{#subheader}}
+			<div class="sheet-rt-subheader">{{subheader}}{{#subheaderright}} &bullet; {{subheaderright}}{{/subheaderright}}</div>
+			{{/subheader}}
+
+			{{#subheader2}}
+			<div class="sheet-rt-subheader">{{subheader2}}{{#subheaderright2}} &bullet; {{subheaderright2}}{{/subheaderright2}}</div>
+			{{/subheader2}}
+		</div>
+
+
+			{{#emote}}
+			<p class="sheet-rt-emote">{{emote}}</p>
+			{{/emote}}
+
+			<div class="sheet-main-content">
+
+				<!--Weapon based attacks-->
+				{{#attack}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Attack</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{attack}} vs AC</div>
+				</div>
+				{{/attack}}
+
+				{{#damage}}
+    				{{#rollWasCrit() attack}}
+        				<div class="sheet-row">
+        					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Crit damage</div>
+        					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{critdamage}}</div>
+        				</div>
+        				{{#ability}}
+        				    You can repeat this Ability against a different target at no cost!
+        				{{/ability}}
+    				{{/rollWasCrit() attack}}
+    				{{#^rollWasCrit() attack}}
+        				<div class="sheet-row">
+        					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Damage</div>
+        					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{damage}}</div>
+        				</div>
+    				{{/^rollWasCrit() attack}}
+				
+				
+				{{/damage}}
+
+				
+
+
+
+				<!--Spellcasting-->
+
+				{{#spellshowinfoblock}}
+				<div class="sheet-row sheet-padb">
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-rt-key">Class</span><br/><span class="sheet-rt-value">{{spellgainedfrom}}</span></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-rt-key">Comp.</span><br/><span class="sheet-rt-value">{{spellcomponents}}</span></div>
+					<div class="sheet-col-1 sheet-border-top-dotted"></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-rt-key">Cast Time</span><br/><span class="sheet-rt-value">{{spellcasttime}}</span></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-rt-key">Duration</span><br/><span class="sheet-rt-value">{{spellduration}}</span></div>
+					<div class="sheet-col-1 sheet-border-top-dotted"></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-rt-key">Target/AoE</span><br/><span class="sheet-rt-value">{{spelltarget}}</span></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-rt-key">Range</span><br/><span class="sheet-rt-value">{{spellrange}}</span></div>
+				</div>
+				{{/spellshowinfoblock}}
+
+				{{#spellshowattack}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Attack</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellattack}} vs AC</div>
+				</div>
+				{{/spellshowattack}}
+
+				{{#spellcost}}
+					<div class="sheet-row">
+						<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Cost</div>
+						<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellcost}} Ability Points</div>
+					<div class="sheet-row">
+				{{/spellcost}}
+
+
+				<!--Generic section-->
+				{{#freetextz}}
+					<div class="sheet-row">
+						<div class="sheet-col-1 sheet-padl sheet-padr sheet-rt-key-wide">{{freetextname}}</div>
+						<div class="sheet-col-1 sheet-padl sheet-padr sheet-rt-value">{{freetext}}</div>
+					</div>
+				{{/freetextz}}
+
+
+				{{#roll}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">{{rollname}}</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{roll}}</div>
+				</div>
+				{{/roll}}
+
+				<!-- START roll option templates -->
+
+				<!--Simple roll (such as save/skill check or weapon attack)-->
+				{{#simple}}
+				<!--	<div class="sheet-row">
+						<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">{{rollname}}</div>
+						<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{roll}}</div>
+					</div>-->
+
+					{{#weapondamage}}
+						<div class="sheet-row">
+							<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Damage</div>
+							<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{weapondamage}}</div>
+						</div>
+					{{/weapondamage}}
+
+					{{#weapon}}
+						{{#rollWasCrit() roll}}
+							<div class="sheet-row">
+								<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Crit</div>
+								<div class="sheet-col-7-12 sheet-padr sheet-rt-value">Additional Max Damage</div>
+							</div>
+						{{/rollWasCrit() roll}}
+
+					{{/weapon}}
+					
+					
+					
+					{{#target}}
+					
+					    {{#rollLess() roll target}}
+
+    						<div class="sheet-row">
+    							<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key" style="text-align:center; vertical-align:middle; color:green">Success</div>
+    						</div>
+						{{/rollLess() roll target}}
+						
+						{{#rollGreater() roll target}}
+						<div class="sheet-row">
+    						<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key" style="text-align:center; vertical-align:middle; color:red">Failure</div>
+    					</div>
+						{{/rollGreater() roll target}}
+						
+					{{/target}}
+					
+
+					
+					{{#math}}
+						<div class="sheet-row">
+							<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Math</div>
+							<div class="sheet-col-7-12 sheet-padr sheet-rt-value sheet-no-roll-highlight">{{math}}</div>
+						</div>
+					{{/math}}
+
+				{{/simple}}
+
+				<!-- END roll option templates -->
+
+				<!--Outputall-->
+
+				{{#outputall}}
+
+					{{#allprops() outputall title subheader subheaderright subheader2 subheaderright2 emote weapon spell ability save deathsave}}
+
+						<div class="sheet-row">
+							<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">{{key}}</div>
+							<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{value}}</div>
+						</div>
+
+					{{/allprops() outputall title subheader subheaderright subheader2 subheaderright2 emote weapon spell ability save deathsave}}
+
+				{{/outputall}}
+
+				<!--DEBUG-->
+
+				{{#debug}}
+
+					{{#allprops()}}
+
+						<div class="sheet-row">
+							<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">{{key}} (DEBUG)</div>
+							<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{value}}</div>
+						</div>
+
+					{{/allprops()}}
+
+				{{/debug}}
+
+			</div>
+		</div>
+
+</rolltemplate>

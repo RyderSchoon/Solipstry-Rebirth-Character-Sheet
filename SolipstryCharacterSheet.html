@@ -301,11 +301,9 @@
                 <label class="sheet-inline" style="font-size:14px;" name="attr_carry_weight-name">Carry Weight</label>
             </div>
 			<div class="sheet-right-attr">
-                <input class="sheet-inline" type="hidden" name="attr_carry_weight" value="0" style="width:50px"/>
-                <input class="sheet-inline" type="number" name="attr_carry_weight_actual" disabled="true" value="@{carry_weight}" style="width:50px"/>
+                <input class="sheet-inline" type="number" name="attr_carry_weight" style="width:50px" readonly/>
                  <p class="sheet-big">/</p>
                 <input class="sheet-inline" name="attr_carry_weight_max" style="width:50px" readonly/>
-                <!-- <input class="sheet-inline" type="number" name="attr_carry_weight_max_actual" disabled="true" value="@{carry_weight_max}" style="width:50px"/>-->
                 <input class="sheet-inline" type="number" name="attr_carry_weight_misc" style="margin-left:5px" value="0" title="Miscellaneous carry weight bonuses"/>
             </div>
         </div>
@@ -1065,17 +1063,19 @@
 <h3>Equipment</h3>
 <div class='sheet-row'>
     <div style="width:100%;">
-		<div class="section-header" style="height:30px;width:270px;padding-left:15px;">
-			<label style="float:left;width:110px;">Carry Weight:</label>
-			<input class="sheet-inline" type="number" name="attr_carry_weight_actual" value="@{carry_weight}" style="width:50px;float:left;" readonly/>
-			 <p class="sheet-big">/</p>
-			<input class="sheet-inline" name="attr_carry_weight_max" style="width:50px" readonly/>
+		<div class="section-header" style="height:30px;min-width:270px;width:50%;padding-left:15px;">
+			<div style="margin:0 auto;width:240px;color:white;">
+				<label style="float:left;width:110px;">Carry Weight:</label>
+				<input class="sheet-inline" type="number" name="attr_carry_weight" style="width:50px;float:left;" readonly/>
+				 <p class="sheet-big">/</p>
+				<input class="sheet-inline" name="attr_carry_weight_max" style="width:50px" readonly/>
+			</div>
 		</div>
 		<div style="height:20px;">
 			<div style="float:left;width:10%;text-align:center;">Weight</div>
 			<div style="float:left;width:90%;text-align:center;">Description</div>
 		</div>
-        <fieldset class="repeating_equipment">
+        <fieldset class="repeating_equipment" id="equipment_set">
             <input type="number" style="width:10%; margin-bottom:5px;float:left;" value="0" name="attr_equipment_weight">
             <input type="text" style="width:90%; margin-bottom:5px;float:left;" name="attr_equipment_cust">
         </fieldset>
@@ -1228,11 +1228,11 @@
 <h3>Abilities</h3>
 <!--If compendium, add here-->
 <div>
-	<div class='section-header' style="height:30px;width:570px;padding-left:15px;">
+	<div class='section-header' style="height:30px;min-width:570px;width:50%;padding-left:15px;">
 		<label style="float:left;width:110px;">Ability Points:</label>
-		<input class="sheet-inline" style="width:50px;float:left;" type="number" name ="attr_Abil" readonly/> 
+		<input class="sheet-inline" style="width:50px;float:left;" type="number" name ="attr_Abil" readonly></input>
 		<p class="sheet-big" style="float:left;">/</p>
-		<input class="sheet-inline" name="attr_abil_max" style="width:50px;float:left;" readonly/>
+		<input class="sheet-inline" name="attr_abil_max" style="width:50px;float:left;" readonly></input>
 		<label style="float:left;width:115px;padding-left:10px;">Regen for turn:</label>
 		<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --abil|%abil%+%abil_regen%|%abil_max%
 			&{template:5eDefault} {{ability=1}} {{character_name=@{char_name}}} {{title=Regen per turn}} {{subheader=@{char_name}}}"></button>
@@ -1268,20 +1268,20 @@
 			</select></div>
 			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_cost"></div>
 			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_sustain_cost"></div>
-			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_to_hit"></div>
+			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_to_hit" readonly></input></div>
 			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_to_hit_misc"></div>
 			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px;float:left;" value="0" name="attr_custom_ability_dam_die_misc"></div>
 			<div style="float:left; min-width:56px; width:6%;">
 				<div style="width:10%;min-width:10px; float: left;">
 					<label style="font-size: 14px">d</label>
 				</div>
-				<input type="number" style="width:90%;max-width:45.5px; margin-bottom:5px;float:left;" value="0" name="attr_custom_ability_dam_die">
+				<input type="number" style="width:90%;max-width:45.5px; margin-bottom:5px;float:left;" value="0" name="attr_custom_ability_dam_die"></input>
 			</div>
 			<div style="float:left; min-width:56px; width:6%;">
 				<div style="width:10%; min-width:10px; float:left;">
 					<label style="font-size: 14px">+</label>
 				</div>
-				<input type="number" style="width:90%;max-width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_dam">
+				<input type="number" style="width:90%;max-width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_dam" readonly></input>
 			</div>
 			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="0" name="attr_custom_ability_dam_misc"></div>
 			<div style="float:left; width:6%;"><input type="number" style="width:45.5px; margin-bottom:5px" value="20" name="attr_custom_ability_crit_target"></div>
@@ -1299,7 +1299,7 @@
 <!--Enlightenment-->
 <h3>Enlightenment Truths</h3>
 <div class="sheet-row">
-	<div class="section-header" style="height:30px;width:470px;padding-left:15px;">
+	<div class="section-header" style="height:30px;min-width:470px;width:50%;padding-left:15px;">
 		<label style="float:left;width:170px;">Enlightenment Points:</label>
 		<input class="sheet-inline" name="attr_enlightenment_points" style="width:50px;float:left;" type="number" readonly/> 
 		<p class="sheet-big" style="float:left;">/</p>
@@ -1625,12 +1625,16 @@ on("sheet:opened change:repeating_ability:custom_ability_school_name change:skil
 	update_id("ability");
 });
 
-on("sheet:opened change:repeating_custom_attack:type change:repeating_custom_attack:two_handed change:repeating_custom_attack:range_misc change:repeating_custom_attack:to_hit_misc change:repeating_custom_attack:dam_die_misc change:repeating_custom_attack_dam_misc change:skill_melee_weapon_mod change:skill_ranged_mod change:skill_unarmed_combat_mod", function(){
+on("sheet:opened change:repeating_custom_attack change:skill_melee_weapon_mod change:skill_ranged_mod change:skill_unarmed_combat_mod", function(){
 	update_custom_attacks();
-}
+});
 
 on("sheet:opened change:abil change:abil_max change:enlightenment_points change:skill_enlightenment_hidden", function() {
 	check_max_bounds();
+});
+
+on("change:repeating_equipment:equipment_weight",function(eventArgs){
+	update_weight(eventArgs);
 });
 
 var update_id = function(name){
@@ -1641,6 +1645,27 @@ var update_id = function(name){
 			setAttrs(attrs,{silent:true});
 		}
 	});
+};
+
+var update_weight = function(eventArgs){
+		getAttrs(["carry_weight","carry_weight_max","spdmod","movement_misc"],function(values){
+			var newWeight = parseInt(values.carry_weight) + parseInt(eventArgs.newValue) - parseInt(eventArgs.previousValue);
+			var maxWeight = parseInt(values.carry_weight_max);
+			var newMovement = 3 + parseInt(values.spdmod) + parseInt(values.movement_misc);
+			
+			if(newWeight>maxWeight){
+				newMovement = 0;
+			}
+			else if(newWeight>Math.floor(maxWeight/2)){
+				newMovement = Math.floor(newMovement/2);
+			}
+			
+			console.log(newWeight+" = "+parseInt(values.carry_weight)+" + "+parseInt(eventArgs.newValue)+" - "+parseInt(eventArgs.previousValue));
+			setAttrs({
+				carry_weight : newWeight,
+				movement : newMovement
+			});
+		});
 };
 
 var check_max_bounds=function(){
@@ -1665,13 +1690,23 @@ var check_max_bounds=function(){
 			abil : currentAbil,
 			enlightenment_points : currentEnlightenment
         });
-		console.log(values);
 	});
 };
 
 var update_attributes=function(){
-	getAttrs(["Strength", "Constitution", "Dexterity", "Intelligence", "Wisdom", "Charisma", "Speed", "Luck", "carry_weight_misc", "enlightenment_points", "skill_enlightenment_hidden", "abil_enlightenment_misc","repeating_attribute_custom_att_score","hp_misc", "abil_misc", "abil_regen_misc", "style_misc", "movement_misc", "init_misc"], function(values) {
+	getAttrs(["Strength", "Constitution", "Dexterity", "Intelligence", "Wisdom", "Charisma", "Speed", "Luck", "carry_weight_misc", "carry_weight", "enlightenment_points", "skill_enlightenment_hidden", "abil_enlightenment_misc","repeating_attribute_custom_att_score","hp_misc", "abil_misc", "abil_regen_misc", "style_misc", "movement_misc", "init_misc"], function(values) {
     //Update Attribute modifiers
+		var currentWeight = parseInt(values.carry_weight);
+		var maxWeight = parseInt(values.carry_weight_max);
+		var newMovement = 3 + Math.floor(parseInt(values.Speed) / 10) + parseInt(values.movement_misc);
+		
+		if(currentWeight>Math.floor(maxWeight/2)){
+			newMovement = Math.floor(movement/2);
+		}
+		else if(currentWeight>maxWeight){
+			newMovement = 0;
+		}
+			
         setAttrs({
 			strmod: Math.floor(values.Strength / 10),
 			conmod: Math.floor(values.Constitution / 10),
@@ -1687,11 +1722,10 @@ var update_attributes=function(){
 			abil_regen: parseInt(values.Intelligence) + parseInt(values.abil_regen_misc),
 			enlightenment_points_max: parseInt(values.skill_enlightenment_hidden) + parseInt(values.abil_enlightenment_misc),
 			style_max: Math.floor(parseInt(values.Charisma) / 10) + parseInt(values.style_misc),
-			movement: 3 + Math.floor(parseInt(values.Speed) / 10) + parseInt(values.movement_misc),
+			movement: newMovement,
 			init: Math.floor(parseInt(values.Speed) / 10) + parseInt(values.init_misc),
-			carry_weight_max: parseInt(values.Strength)*4+20 + parseInt(values.carry_weight_misc)
+			carry_weight_max: parseInt(values.Strength)*6 + parseInt(values.carry_weight_misc)
         });
-		console.log(values);
 	});
 	update_skills(); 
 	update_defenses();
@@ -2217,48 +2251,53 @@ var update_custom_abilities=function(){
 }
 
 var update_custom_attacks=function(){
-  getAttrs(["repeating_custom_attack_type", "repeating_custom_attack_two_handed", "repeating_custom_attack_range_misc", "repeating_custom_attack_to_hit_misc", "repeating_custom_attack_dam_die_misc", "repeating_custom_attack_dam_misc", "skill_melee_weapon_mod", "skill_ranged_mod", "skill_unarmed_combat_mod"], function(values) {
-     //Update Attribute modifiers
-    
-    var base_damage_die = 0;
-	var base_range = 0;
-	var base_to_hit = 0;
-	var base_dam = 0;
-	
-    switch(values.repeating_custom_attack_type){
-        case 'Melee Weapon':
-            base_damage_die = 4;
-			base_range = 1;
-			base_to_hit = parseInt(values.skill_melee_weapon_mod);
-			base_dam = parseInt(values.skill_melee_weapon_mod);
-            break;
-        case 'Ranged Weapon':
-            base_damage_die = 4;
-			base_range = 2*parseInt(values.skill_ranged_mod);
-			base_to_hit = parseInt(values.skill_ranged_mod);
-			base_dam = parseInt(values.skill_ranged_mod);
-			break;
-        case 'Unarmed Combat':
-            base_damage_die = 2;
-			base_range = 1;
-			base_to_hit = parseInt(values.skill_unarmed_combat_mod);
-			base_dam = parseInt(values.skill_unarmed_combat_mod);
-            break;
-		default:
-			base_damage_die = 0;
-			base_range = 0;
-			base_to_hit = 0;
-			base_dam = 0;
-			break;
-    }
-	
-	setAttrs({
-	  "repeating_custom_attack_to_hit_total": base_to_hit + parseInt(values.repeating_custom_attack_to_hit_misc),
-	  "repeating_custom_attack_dam_die_total": base_damage_die + parseInt(values.repeating_custom_attack_dam_die_misc),
-	  "repeating_custom_attack_dam_total": base_dam + parseInt(values.repeating_custom_attack_dam_misc),
-	  "repeating_custom_attack_range_total": base_range + parseInt(values.repeating_custom_attack_range_misc)
+	console.log("@@@@@@@@@@@@@@@@@@@@@@update_custom_attacks1@@@@@@@@@@@@@@@@@@@@@@");
+	console.log("@@@@@@@@@@@@@@@@@@@@@@update_custom_attacks2@@@@@@@@@@@@@@@@@@@@@@");
+	console.log("@@@@@@@@@@@@@@@@@@@@@@update_custom_attacks3@@@@@@@@@@@@@@@@@@@@@@");
+	/*
+	getAttrs(["repeating_custom_attack_type", "repeating_custom_attack_two_handed", "repeating_custom_attack_range_misc", "repeating_custom_attack_to_hit_misc", "repeating_custom_attack_dam_die_misc", "repeating_custom_attack_dam_misc", "skill_melee_weapon_mod", "skill_ranged_mod", "skill_unarmed_combat_mod"], function(values) {
+		//Update Attribute modifiers
+		
+		var base_damage_die = 0;
+		var base_range = 0;
+		var base_to_hit = 0;
+		var base_dam = 0;
+		
+		switch(values.repeating_custom_attack_type){
+			case 'Melee Weapon':
+				base_damage_die = 4;
+				base_range = 1;
+				base_to_hit = parseInt(values.skill_melee_weapon_mod);
+				base_dam = parseInt(values.skill_melee_weapon_mod);
+				break;
+			case 'Ranged Weapon':
+				base_damage_die = 4;
+				base_range = 2*parseInt(values.skill_ranged_mod);
+				base_to_hit = parseInt(values.skill_ranged_mod);
+				base_dam = parseInt(values.skill_ranged_mod);
+				break;
+			case 'Unarmed Combat':
+				base_damage_die = 2;
+				base_range = 1;
+				base_to_hit = parseInt(values.skill_unarmed_combat_mod);
+				base_dam = parseInt(values.skill_unarmed_combat_mod);
+				break;
+			default:
+				base_damage_die = 0;
+				base_range = 0;
+				base_to_hit = 0;
+				base_dam = 0;
+				break;
+		}
+		
+		setAttrs({
+		  "repeating_custom_attack_to_hit_total": base_to_hit + parseInt(values.repeating_custom_attack_to_hit_misc),
+		  "repeating_custom_attack_dam_die_total": base_damage_die + parseInt(values.repeating_custom_attack_dam_die_misc),
+		  "repeating_custom_attack_dam_total": base_dam + parseInt(values.repeating_custom_attack_dam_misc),
+		  "repeating_custom_attack_range_total": base_range + parseInt(values.repeating_custom_attack_range_misc)
+		});
 	});
-   });
+	*/
 }
 
 var update_skills=function(){

@@ -27,17 +27,18 @@ div.sheet-section-header{
     margin-left: auto;
     margin-right: auto;
     margin-top: -5px;
+	width:50%;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     color:white;
 }
 
-div.sheet-section-header > sheet-header-content > label{
-    color:white;
-}
-
 div.sheet-header-content{
     margin:0 auto;
+}
+
+div.sheet-header-content > label{
+    color:white;
 }
 
 p.sheet-big{

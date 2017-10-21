@@ -1063,8 +1063,8 @@
 <h3>Equipment</h3>
 <div class='sheet-row'>
     <div style="width:100%;">
-		<div class="section-header" style="height:30px;min-width:270px;width:50%;padding-left:15px;">
-			<div style="margin:0 auto;width:240px;color:white;">
+		<div class="section-header" style="height:30px;min-width:270px;width:50%;">
+			<div class="header-content" style="width:240px;">
 				<label style="float:left;width:110px;">Carry Weight:</label>
 				<input class="sheet-inline" type="number" name="attr_carry_weight" style="width:50px;float:left;" readonly/>
 				 <p class="sheet-big">/</p>
@@ -1228,16 +1228,18 @@
 <h3>Abilities</h3>
 <!--If compendium, add here-->
 <div>
-	<div class='section-header' style="height:30px;min-width:570px;width:50%;padding-left:15px;">
-		<label style="float:left;width:110px;">Ability Points:</label>
-		<input class="sheet-inline" style="width:50px;float:left;" type="number" name ="attr_Abil" readonly></input>
-		<p class="sheet-big" style="float:left;">/</p>
-		<input class="sheet-inline" name="attr_abil_max" style="width:50px;float:left;" readonly></input>
-		<label style="float:left;width:115px;padding-left:10px;">Regen for turn:</label>
-		<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --abil|%abil%+%abil_regen%|%abil_max%
-			&{template:5eDefault} {{ability=1}} {{character_name=@{char_name}}} {{title=Regen per turn}} {{subheader=@{char_name}}}"></button>
-		<label style="float:left;width:100px;padding-left:10px;">Regen to full:</label>
-		<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --abil|%abil_max%"></button>
+	<div class='section-header' style="height:30px;min-width:570px;">
+		<div class="header-content" style="width:540px;">
+			<label style="float:left;width:110px;">Ability Points:</label>
+			<input class="sheet-inline" style="width:50px;float:left;" type="number" name ="attr_Abil" readonly></input>
+			<p class="sheet-big" style="float:left;">/</p>
+			<input class="sheet-inline" name="attr_abil_max" style="width:50px;float:left;" readonly></input>
+			<label style="float:left;width:115px;padding-left:10px;">Regen for turn:</label>
+			<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --abil|%abil%+%abil_regen%|%abil_max%
+				&{template:5eDefault} {{ability=1}} {{character_name=@{char_name}}} {{title=Regen per turn}} {{subheader=@{char_name}}}"></button>
+			<label style="float:left;width:100px;padding-left:10px;">Regen to full:</label>
+			<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --abil|%abil_max%"></button>
+		</div>
 	</div>
 	<div class='sheet-row' style="height:52.8px;">
 		<div class="sheet-cust-abil" style="float:left; width:10%;">Name</div>
@@ -1300,13 +1302,15 @@
 <h3>Enlightenment Truths</h3>
 <div class="sheet-row">
 	<div class="section-header" style="height:30px;min-width:470px;width:50%;padding-left:15px;">
-		<label style="float:left;width:170px;">Enlightenment Points:</label>
-		<input class="sheet-inline" name="attr_enlightenment_points" style="width:50px;float:left;" type="number" readonly/> 
-		<p class="sheet-big" style="float:left;">/</p>
-		<input class="sheet-inline" name="attr_enlightenment_points_max" style="width:50px;float:left;" readonly/>
-		<label style="float:left;width:100px;padding-left:10px;">Regen to full:</label>
-		<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%skill_enlightenment_hidden%
-			&{template:5eDefault} {{ability=1}} {{character_name=@{char_name}}} {{title=Regen enlightenment}} {{subheader=@{char_name}}} {{emote=Takes a standard}}"></button>
+		<div class="header-content" style="width:440px;">
+			<label style="float:left;width:170px;">Enlightenment Points:</label>
+			<input class="sheet-inline" name="attr_enlightenment_points" style="width:50px;float:left;" type="number" readonly/> 
+			<p class="sheet-big" style="float:left;">/</p>
+			<input class="sheet-inline" name="attr_enlightenment_points_max" style="width:50px;float:left;" readonly/>
+			<label style="float:left;width:100px;padding-left:10px;">Regen to full:</label>
+			<button type="roll" style="float:left;" name="roll_custom_ability" value="!setattr --silent --evaluate --nocreate --name @{char_name} --enlightenment_points|%skill_enlightenment_hidden%
+				&{template:5eDefault} {{ability=1}} {{character_name=@{char_name}}} {{title=Regen enlightenment}} {{subheader=@{char_name}}} {{emote=Takes a standard}}"></button>
+		</div>
 	</div>
     <div class="sheet-col">
 		<table>
@@ -1730,19 +1734,11 @@ var update_attributes=function(){
 	update_skills(); 
 	update_defenses();
 	update_custom_skills();
-	/*
-	getAttrs(["abil_enlightenment_misc, skill_enlightenment_hidden"], function(values) {
-		
-		setAttrs({
-			enlightenment_points_max: values.skill_enlightenment_hidden + values.abil_enlightenment_misc;
-		});
-	};
-		*/
 };
 
 var update_tallies = function(){
-	var newbigtal = 0;    
-        
+	//var newbigtal = 0;
+	
     var new_acrobatics_levels = 0;
     var new_athletics_levels = 0;
     var new_block_levels = 0;
@@ -1771,391 +1767,181 @@ var update_tallies = function(){
     var new_survival_levels = 0;
     var new_unarmed_combat_levels = 0;
     var new_utility_levels = 0;
-	
 	//Retrieve current values
 	getAttrs(["big_tallies", "skill_acrobatics_tallies", "skill_acrobatics_mod", "skill_acrobatics_misc", "skill_athletics_tallies", "skill_athletics_mod", "skill_athletics_misc", "skill_block_tallies", "skill_block_mod", "skill_block_misc", "skill_chemistry_tallies", "skill_chemistry_mod", "skill_chemistry_misc", "skill_control_tallies", "skill_control_mod", "skill_control_misc", "skill_craft_tallies", "skill_craft_mod", "skill_craft_misc", "skill_destruction_tallies", "skill_destruction_mod", "skill_destruction_misc", "skill_disguise_tallies", "skill_disguise_mod", "skill_disguise_misc", "skill_engineering_tallies", "skill_engineering_mod", "skill_engineering_misc", "skill_enhancement_tallies", "skill_enhancement_mod", "skill_enhancement_misc", "skill_enlightenment_tallies", "skill_enlightenment_mod", "skill_enlightenment_misc", "skill_escape_tallies", "skill_escape_mod", "skill_escape_misc", "skill_heavy_armor_tallies", "skill_heavy_armor_mod", "skill_heavy_armor_misc", "skill_interaction_tallies", "skill_interaction_mod", "skill_interaction_misc", "skill_knowledge_tallies", "skill_knowledge_mod", "skill_knowledge_misc", "skill_light_armor_tallies", "skill_light_armor_mod", "skill_light_armor_misc", "skill_medicine_tallies", "skill_medicine_mod", "skill_medicine_misc", "skill_melee_weapon_tallies", "skill_melee_weapon_mod", "skill_melee_weapon_misc", "skill_perception_tallies", "skill_perception_mod", "skill_perception_misc", "skill_ranged_tallies", "skill_ranged_mod", "skill_ranged_misc", "skill_ride_drive_tallies", "skill_ride_drive_mod", "skill_ride_drive_misc", "skill_security_tallies", "skill_security_mod", "skill_security_misc", "skill_sense_motive_tallies", "skill_sense_motive_mod", "skill_sense_motive_misc", "skill_sleight_of_hand_tallies", "skill_sleight_of_hand_mod", "skill_sleight_of_hand_misc", "skill_stealth_tallies", "skill_stealth_mod", "skill_stealth_misc", "skill_survival_tallies", "skill_survival_mod", "skill_survival_misc", "skill_unarmed_combat_tallies", "skill_unarmed_combat_mod", "skill_unarmed_combat_misc", "skill_utility_tallies", "skill_utility_mod", "skill_utility_misc", "skill_ride_drive_hidden", "skill_acrobatics_hidden", "skill_sense_motive_hidden", "skill_melee_weapon_hidden", "skill_athletics_hidden", "skill_unarmed_combat_hidden", "skill_block_hidden", "skill_chemistry_hidden", "skill_control_hidden", "skill_craft_hidden", "skill_destruction_hidden", "skill_disguise_hidden", "skill_engineering_hidden", "skill_enhancement_hidden", "skill_enlightenment_hidden", "skill_escape_hidden", "skill_heavy_armor_hidden", "skill_interaction_hidden", "skill_knowledge_hidden", "skill_light_armor_hidden", "skill_medicine_hidden", "skill_perception_hidden", "skill_ranged_hidden", "skill_security_hidden", "skill_sleight_of_hand_hidden", "skill_survival_hidden", "skill_stealth_hidden", "skill_utility_hidden"],function(values){
-		var temp_tal_acrobatics = values.skill_acrobatics_tallies;
-		var temp_tal_athletics = values.skill_athletics_tallies;
-		var temp_tal_block = values.skill_block_tallies;
-		var temp_tal_chemistry = values.skill_chemistry_tallies;
-		var temp_tal_control = values.skill_control_tallies;
-		var temp_tal_craft = values.skill_craft_tallies;
-		var temp_tal_destruction = values.skill_destruction_tallies;
-		var temp_tal_disguise = values.skill_disguise_tallies;
-		var temp_tal_engineering = values.skill_engineering_tallies;
-		var temp_tal_enhancement = values.skill_enhancement_tallies;
-		var temp_tal_enlightenment = values.skill_enlightenment_tallies;
-		var temp_tal_escape = values.skill_escape_tallies;
-		var temp_tal_heavy_armor = values.skill_heavy_armor_tallies;
-		var temp_tal_interaction = values.skill_interaction_tallies;
-		var temp_tal_knowledge = values.skill_knowledge_tallies;
-		var temp_tal_light_armor = values.skill_light_armor_tallies;
-		var temp_tal_medicine = values.skill_medicine_tallies;
-		var temp_tal_melee_weapon = values.skill_melee_weapon_tallies;
-		var temp_tal_perception = values.skill_perception_tallies;
-		var temp_tal_ranged = values.skill_ranged_tallies;
-		var temp_tal_ride_drive = values.skill_ride_drive_tallies;
-		var temp_tal_security = values.skill_security_tallies;
-		var temp_tal_sense_motive = values.skill_sense_motive_tallies;
-		var temp_tal_sleight_of_hand = values.skill_sleight_of_hand_tallies;
-		var temp_tal_stealth = values.skill_stealth_tallies;
-		var temp_tal_survival = values.skill_survival_tallies;
-		var temp_tal_unarmed_combat = values.skill_unarmed_combat_tallies;
-		var temp_tal_utility = values.skill_utility_tallies;
+		var newLevels =[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		var tempTallies =	[
+								parseInt(values.skill_acrobatics_tallies),
+								parseInt(values.skill_athletics_tallies),
+								parseInt(values.skill_block_tallies),
+								parseInt(values.skill_chemistry_tallies),
+								parseInt(values.skill_control_tallies),
+								parseInt(values.skill_craft_tallies),
+								parseInt(values.skill_destruction_tallies),
+								parseInt(values.skill_disguise_tallies),
+								parseInt(values.skill_engineering_tallies),
+								parseInt(values.skill_enhancement_tallies),
+								parseInt(values.skill_enlightenment_tallies),
+								parseInt(values.skill_escape_tallies),
+								parseInt(values.skill_heavy_armor_tallies),
+								parseInt(values.skill_interaction_tallies),
+								parseInt(values.skill_knowledge_tallies),
+								parseInt(values.skill_light_armor_tallies),
+								parseInt(values.skill_medicine_tallies),
+								parseInt(values.skill_melee_weapon_tallies),
+								parseInt(values.skill_perception_tallies),
+								parseInt(values.skill_ranged_tallies),
+								parseInt(values.skill_ride_drive_tallies),
+								parseInt(values.skill_security_tallies),
+								parseInt(values.skill_sense_motive_tallies),
+								parseInt(values.skill_sleight_of_hand_tallies),
+								parseInt(values.skill_stealth_tallies),
+								parseInt(values.skill_survival_tallies),
+								parseInt(values.skill_unarmed_combat_tallies),
+								parseInt(values.skill_utility_tallies)
+							];
+		var hiddenValues =	[
+								parseInt(values.skill_acrobatics_hidden),
+								parseInt(values.skill_athletics_hidden),
+								parseInt(values.skill_block_hidden),
+								parseInt(values.skill_chemistry_hidden),
+								parseInt(values.skill_control_hidden),
+								parseInt(values.skill_craft_hidden),
+								parseInt(values.skill_destruction_hidden),
+								parseInt(values.skill_disguise_hidden),
+								parseInt(values.skill_engineering_hidden),
+								parseInt(values.skill_enhancement_hidden),
+								parseInt(values.skill_enlightenment_hidden),
+								parseInt(values.skill_escape_hidden),
+								parseInt(values.skill_heavy_armor_hidden),
+								parseInt(values.skill_interaction_hidden),
+								parseInt(values.skill_knowledge_hidden),
+								parseInt(values.skill_light_armor_hidden),
+								parseInt(values.skill_medicine_hidden),
+								parseInt(values.skill_melee_weapon_hidden),
+								parseInt(values.skill_perception_hidden),
+								parseInt(values.skill_ranged_hidden),
+								parseInt(values.skill_ride_drive_hidden),
+								parseInt(values.skill_security_hidden),
+								parseInt(values.skill_sense_motive_hidden),
+								parseInt(values.skill_sleight_of_hand_hidden),
+								parseInt(values.skill_stealth_hidden),
+								parseInt(values.skill_survival_hidden),
+								parseInt(values.skill_unarmed_combat_hidden),
+								parseInt(values.skill_utility_hidden)
+							];
+		var miscValues =	[
+								parseInt(values.skill_acrobatics_misc),
+								parseInt(values.skill_athletics_misc),
+								parseInt(values.skill_block_misc),
+								parseInt(values.skill_chemistry_misc),
+								parseInt(values.skill_control_misc),
+								parseInt(values.skill_craft_misc),
+								parseInt(values.skill_destruction_misc),
+								parseInt(values.skill_disguise_misc),
+								parseInt(values.skill_engineering_misc),
+								parseInt(values.skill_enhancement_misc),
+								parseInt(values.skill_enlightenment_misc),
+								parseInt(values.skill_escape_misc),
+								parseInt(values.skill_heavy_armor_misc),
+								parseInt(values.skill_interaction_misc),
+								parseInt(values.skill_knowledge_misc),
+								parseInt(values.skill_light_armor_misc),
+								parseInt(values.skill_medicine_misc),
+								parseInt(values.skill_melee_weapon_misc),
+								parseInt(values.skill_perception_misc),
+								parseInt(values.skill_ranged_misc),
+								parseInt(values.skill_ride_drive_misc),
+								parseInt(values.skill_security_misc),
+								parseInt(values.skill_sense_motive_misc),
+								parseInt(values.skill_sleight_of_hand_misc),
+								parseInt(values.skill_stealth_misc),
+								parseInt(values.skill_survival_misc),
+								parseInt(values.skill_unarmed_combat_misc),
+								parseInt(values.skill_utility_misc)
+							];					
 	
-		var looping = true;
-		
-		//Loop through until all skills finish tallying
-		while(looping){
-			var mod;
-			var loopflag = false;
-			
-			mod = parseInt(temp_tal_acrobatics / Math.max(Math.floor((parseInt(values.skill_acrobatics_hidden) + new_acrobatics_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
+		for(var i = 0;i < hiddenValues.length;i++){
+			var mod = (hiddenValues[i] + newLevels[i]);
+			mod = Math.floor(mod/10);
+			mod = Math.ceil(mod/2);
+			mod = Math.max(mod,1);
+			while(Math.abs(tempTallies[i])-mod >= 0){
+				console.log("TempTallies:"+tempTallies[i]);
+				if(tempTallies[i]>0){
+					tempTallies[i] -= mod;
+					newLevels[i] += 1;
+					//newbigtal += 1;
 				}
-				temp_tal_acrobatics -= Math.max(Math.floor((parseInt(values.skill_acrobatics_hidden) + new_acrobatics_levels)/10),1);
-				new_acrobatics_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_athletics / Math.max(Math.floor((parseInt(values.skill_athletics_hidden) + new_athletics_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
+				else{
+					tempTallies[i] += mod;
+					newLevels[i] -= 1;
 				}
-				temp_tal_athletics -= Math.max(Math.floor((parseInt(values.skill_athletics_hidden) + new_athletics_levels)/10),1);
-				new_athletics_levels += 1;
-				newbigtal += 1;
 			}
-			
-			mod = parseInt(temp_tal_block / Math.max(Math.floor((parseInt(values.skill_block_hidden) + new_block_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_block -= Math.max(Math.floor((parseInt(values.skill_block_hidden) + new_block_levels)/10),1)
-				new_block_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_chemistry / Math.max(Math.floor((parseInt(values.skill_chemistry_hidden) + new_chemistry_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_chemistry -= Math.max(Math.floor((parseInt(values.skill_chemistry_hidden) + new_chemistry_levels)/10),1);
-				new_chemistry_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_control / Math.max(Math.floor((parseInt(values.skill_control_hidden) + new_control_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_control -= Math.max(Math.floor((parseInt(values.skill_control_hidden) + new_control_levels)/10),1);
-				new_control_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_craft / Math.max(Math.floor((parseInt(values.skill_craft_hidden) + new_craft_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_acrobatics -= Math.max(Math.floor((parseInt(values.skill_craft_hidden) + new_craft_levels)/10),1);
-				new_acrobatics_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_destruction / Math.max(Math.floor((parseInt(values.skill_destruction_hidden) + new_destruction_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_destruction -= Math.max(Math.floor((parseInt(values.skill_destruction_hidden) + new_destruction_levels)/10),1);
-				new_destruction_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_disguise / Math.max(Math.floor((parseInt(values.skill_disguise_hidden) + new_disguise_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_disguise -= Math.max(Math.floor((parseInt(values.skill_disguise_hidden) + new_disguise_levels)/10),1);
-				new_disguise_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_engineering / Math.max(Math.floor((parseInt(values.skill_engineering_hidden) + new_engineering_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_engineering -= Math.max(Math.floor((parseInt(values.skill_engineering_hidden) + new_engineering_levels)/10),1);
-				new_engineering_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_enhancement / Math.max(Math.floor((parseInt(values.skill_enhancement_hidden) + new_enhancement_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_enhancement -= Math.max(Math.floor((parseInt(values.skill_enhancement_hidden) + new_enhancement_levels)/10),1);
-				new_enhancement_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_enlightenment / Math.max(Math.floor((parseInt(values.skill_enlightenment_hidden) + new_enlightenment_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_enlightenment -= Math.max(Math.floor((parseInt(values.skill_enlightenment_hidden) + new_enlightenment_levels)/10),1);
-				new_enlightenment_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_escape / Math.max(Math.floor((parseInt(values.skill_escape_hidden) + new_escape_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_escape -= Math.max(Math.floor((parseInt(values.skill_escape_hidden) + new_escape_levels)/10),1);
-				new_escape_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_heavy_armor / Math.max(Math.floor((parseInt(values.skill_heavy_armor_hidden) + new_heavy_armor_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_heavy_armor -= Math.max(Math.floor((parseInt(values.skill_heavy_armor_hidden) + new_heavy_armor_levels)/10),1);
-				new_heavy_armor_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_interaction / Math.max(Math.floor((parseInt(values.skill_interaction_hidden) + new_interaction_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_interaction -= Math.max(Math.floor((parseInt(values.skill_interaction_hidden) + new_interaction_levels)/10),1);
-				new_interaction_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_knowledge / Math.max(Math.floor((parseInt(values.skill_knowledge_hidden) + new_knowledge_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_knowledge -= Math.max(Math.floor((parseInt(values.skill_knowledge_hidden) + new_knowledge_levels)/10),1);
-				new_knowledge_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_light_armor / Math.max(Math.floor((parseInt(values.skill_light_armor_hidden) + new_light_armor_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_light_armor -= Math.max(Math.floor((parseInt(values.skill_light_armor_hidden) + new_light_armor_levels)/10),1);
-				new_light_armor_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_medicine / Math.max(Math.floor((parseInt(values.skill_medicine_hidden) + new_medicine_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_medicine -= Math.max(Math.floor((parseInt(values.skill_medicine_hidden) + new_medicine_levels)/10),1);
-				new_medicine_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_melee_weapon / Math.max(Math.floor((parseInt(values.skill_melee_weapon_hidden) + new_melee_weapon_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_melee_weapon -= Math.max(Math.floor((parseInt(values.skill_melee_weapon_hidden) + new_melee_weapon_levels)/10),1);
-				new_melee_weapon_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_perception / Math.max(Math.floor((parseInt(values.skill_perception_hidden) + new_perception_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_perception -= Math.max(Math.floor((parseInt(values.skill_perception_hidden) + new_perception_levels)/10),1);
-				new_perception_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_ranged / Math.max(Math.floor((parseInt(values.skill_ranged_hidden) + new_ranged_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_range -= Math.max(Math.floor((parseInt(values.skill_ranged_hidden) + new_ranged_levels)/10),1);
-				new_range_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_ride_drive / Math.max(Math.floor((parseInt(values.skill_ride_drive_hidden) + new_ride_drive_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_ride_drive -= Math.max(Math.floor((parseInt(values.skill_ride_drive_hidden) + new_ride_drive_levels)/10),1);
-				new_ride_drive_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_security / Math.max(Math.floor((parseInt(values.skill_security_hidden) + new_security_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_security -= Math.max(Math.floor((parseInt(values.skill_security_hidden) + new_security_levels)/10),1);
-				new_security_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_sense_motive / Math.max(Math.floor((parseInt(values.skill_sense_motive_hidden) + new_sense_motive_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_sense_motive -=  Math.max(Math.floor((parseInt(values.skill_sense_motive_hidden) + new_sense_motive_levels)/10),1);
-				new_sense_motive_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_sleight_of_hand / Math.max(Math.floor((parseInt(values.skill_sleight_of_hand_hidden) + new_sleight_of_hand_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_sleight_of_hand -= Math.max(Math.floor((parseInt(values.skill_sleight_of_hand_hidden) + new_sleight_of_hand_levels)/10),1);
-				new_sleight_of_hand_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_stealth / Math.max(Math.floor((parseInt(values.skill_stealth_hidden) + new_stealth_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_stealth -= Math.max(Math.floor((parseInt(values.skill_stealth_hidden) + new_stealth_levels)/10),1);
-				new_stealth_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_survival / Math.max(Math.floor((parseInt(values.skill_survival_hidden) + new_survival_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_survival -= Math.max(Math.floor((parseInt(values.skill_survival_hidden) + new_survival_levels)/10),1);
-				new_survival_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_unarmed_combat / Math.max(Math.floor((parseInt(values.skill_unarmed_combat_hidden) + new_unarmed_combat_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_unarmed_combat -= Math.max(Math.floor((parseInt(values.skill_unarmed_combat_hidden) + new_unarmed_combat_levels)/10),1);
-				new_unarmed_combat_levels += 1;
-				newbigtal += 1;
-			}
-			
-			mod = parseInt(temp_tal_utility / Math.max(Math.floor((parseInt(values.skill_utility_hidden) + new_utility_levels)/10),1));
-			if(mod > 0){
-				if(mod>1){
-					loopflag = true;
-				}
-				temp_tal_utility -= Math.max(Math.floor((parseInt(values.skill_utility_hidden) + new_utility_levels)/10),1);
-				new_utility_levels += 1;
-				newbigtal += 1;
-			}
-			
-			looping = loopflag;
 		}
 		
 		//Set new values
 		setAttrs({
 			//big_tallies:newbigtal + parseInt(values.big_tallies),
-			skill_acrobatics_misc: parseInt(values.skill_acrobatics_misc) + new_acrobatics_levels,
-			skill_acrobatics_tallies: temp_tal_acrobatics,
-			skill_athletics_misc: parseInt(values.skill_athletics_misc) + new_athletics_levels,
-			skill_athletics_tallies: temp_tal_athletics,
-			skill_block_misc: parseInt(values.skill_block_misc) + new_block_levels,
-			skill_block_tallies: temp_tal_block,
-			skill_chemistry_misc: parseInt(values.skill_chemistry_misc) + new_chemistry_levels,
-			skill_chemistry_tallies: temp_tal_chemistry,
-			skill_control_misc: parseInt(values.skill_control_misc) + new_control_levels,
-			skill_control_tallies: temp_tal_control,
-			skill_craft_misc: parseInt(values.skill_craft_misc) + new_craft_levels,
-			skill_craft_tallies: temp_tal_craft,
-			skill_destruction_misc: parseInt(values.skill_destruction_misc) + new_destruction_levels,
-			skill_destruction_tallies: temp_tal_destruction,
-			skill_disguise_misc: parseInt(values.skill_disguise_misc) + new_disguise_levels,
-			skill_disguise_tallies: temp_tal_disguise,
-			skill_engineering_misc: parseInt(values.skill_engineering_misc) + new_engineering_levels,
-			skill_engineering_tallies: temp_tal_engineering,
-			skill_enhancement_misc: parseInt(values.skill_enhancement_misc) + new_enhancement_levels,
-			skill_enhancement_tallies: temp_tal_enhancement,
-			skill_enlightenment_misc: parseInt(values.skill_enlightenment_misc) + new_enlightenment_levels,
-			skill_enlightenment_tallies: temp_tal_enlightenment,
-			skill_escape_misc: parseInt(values.skill_escape_misc) + new_escape_levels,
-			skill_escape_tallies: temp_tal_escape,
-			skill_heavy_armor_misc: parseInt(values.skill_heavy_armor_misc) + new_heavy_armor_levels,
-			skill_heavy_armor_tallies: temp_tal_heavy_armor,
-			skill_interaction_misc: parseInt(values.skill_interaction_misc) + new_interaction_levels,
-			skill_interaction_tallies: temp_tal_interaction,
-			skill_knowledge_misc: parseInt(values.skill_knowledge_misc) + new_knowledge_levels,
-			skill_knowledge_tallies: temp_tal_knowledge,
-			skill_light_armor_misc: parseInt(values.skill_light_armor_misc) + new_light_armor_levels,
-			skill_light_armor_tallies: temp_tal_light_armor,
-			skill_medicine_misc: parseInt(values.skill_medicine_misc) + new_medicine_levels,
-			skill_medicine_tallies: temp_tal_medicine,
-			skill_melee_weapon_misc: parseInt(values.skill_melee_weapon_misc) + new_melee_weapon_levels,
-			skill_melee_weapon_tallies: temp_tal_melee_weapon,
-			skill_perception_misc: parseInt(values.skill_perception_misc) + new_perception_levels,
-			skill_perception_tallies: temp_tal_perception,
-			skill_ranged_misc: parseInt(values.skill_ranged_misc) + new_ranged_levels,
-			skill_ranged_tallies: temp_tal_ranged,
-			skill_ride_drive_misc: parseInt(values.skill_ride_drive_misc) + new_ride_drive_levels,
-			skill_ride_drive_tallies: temp_tal_ride_drive,
-			skill_security_misc: parseInt(values.skill_security_misc) + new_security_levels,
-			skill_security_tallies: temp_tal_security,
-			skill_sense_motive_misc: parseInt(values.skill_sense_motive_misc) + new_sense_motive_levels,
-			skill_sense_motive_tallies: temp_tal_sense_motive,
-			skill_sleight_of_hand_misc: parseInt(values.skill_sleight_of_hand_misc) + new_sleight_of_hand_levels,
-			skill_sleight_of_hand_tallies: temp_tal_sleight_of_hand,
-			skill_stealth_misc: parseInt(values.skill_stealth_misc) + new_stealth_levels,
-			skill_stealth_tallies: temp_tal_stealth,
-			skill_survival_misc: parseInt(values.skill_survival_misc) + new_survival_levels,
-			skill_survival_tallies: temp_tal_survival,
-			skill_unarmed_combat_misc: parseInt(values.skill_unarmed_combat_misc) + new_unarmed_combat_levels,
-			skill_unarmed_combat_tallies: temp_tal_unarmed_combat,
-			skill_utility_misc: parseInt(values.skill_utility_misc) + new_utility_levels,
-			skill_utility_tallies: temp_tal_utility
+			skill_acrobatics_misc: 			miscValues[0] + newLevels[0],
+			skill_acrobatics_tallies: 		tempTallies[0],
+			skill_athletics_misc: 			miscValues[1] + newLevels[1],
+			skill_athletics_tallies: 		tempTallies[1],
+			skill_block_misc: 				miscValues[2] + newLevels[2],
+			skill_block_tallies: 			tempTallies[2],
+			skill_chemistry_misc: 			miscValues[3] + newLevels[3],
+			skill_chemistry_tallies: 		tempTallies[3],
+			skill_control_misc: 			miscValues[4] + newLevels[4],
+			skill_control_tallies: 			tempTallies[4],
+			skill_craft_misc: 				miscValues[5] + newLevels[5],
+			skill_craft_tallies: 			tempTallies[5],
+			skill_destruction_misc: 		miscValues[6] + newLevels[6],
+			skill_destruction_tallies: 		tempTallies[6],
+			skill_disguise_misc: 			miscValues[7] + newLevels[7],
+			skill_disguise_tallies: 		tempTallies[7],
+			skill_engineering_misc: 		miscValues[8] + newLevels[8],
+			skill_engineering_tallies: 		tempTallies[8],
+			skill_enhancement_misc: 		miscValues[9] + newLevels[9],
+			skill_enhancement_tallies: 		tempTallies[9],
+			skill_enlightenment_misc: 		miscValues[10] + newLevels[10],
+			skill_enlightenment_tallies: 	tempTallies[10],
+			skill_escape_misc: 				miscValues[11] + newLevels[11],
+			skill_escape_tallies: 			tempTallies[11],
+			skill_heavy_armor_misc: 		miscValues[12] + newLevels[12],
+			skill_heavy_armor_tallies: 		tempTallies[12],
+			skill_interaction_misc: 		miscValues[13] + newLevels[13],
+			skill_interaction_tallies: 		tempTallies[13],
+			skill_knowledge_misc: 			miscValues[14] + newLevels[14],
+			skill_knowledge_tallies: 		tempTallies[14],
+			skill_light_armor_misc: 		miscValues[15] + newLevels[15],
+			skill_light_armor_tallies: 		tempTallies[15],
+			skill_medicine_misc: 			miscValues[16] + newLevels[16],
+			skill_medicine_tallies: 		tempTallies[16],
+			skill_melee_weapon_misc: 		miscValues[17] + newLevels[17],
+			skill_melee_weapon_tallies: 	tempTallies[17],
+			skill_perception_misc: 			miscValues[18] + newLevels[18],
+			skill_perception_tallies: 		tempTallies[18],
+			skill_ranged_misc: 				miscValues[19] + newLevels[19],
+			skill_ranged_tallies: 			tempTallies[19],
+			skill_ride_drive_misc: 			miscValues[20] + newLevels[20],
+			skill_ride_drive_tallies: 		tempTallies[20],
+			skill_security_misc: 			miscValues[21] + newLevels[21],
+			skill_security_tallies: 		tempTallies[21],
+			skill_sense_motive_misc: 		miscValues[22] + newLevels[22],
+			skill_sense_motive_tallies: 	tempTallies[22],
+			skill_sleight_of_hand_misc: 	miscValues[23] + newLevels[23],
+			skill_sleight_of_hand_tallies: 	tempTallies[23],
+			skill_stealth_misc: 			miscValues[24] + newLevels[24],
+			skill_stealth_tallies: 			tempTallies[24],
+			skill_survival_misc: 			miscValues[25] + newLevels[25],
+			skill_survival_tallies: 		tempTallies[25],
+			skill_unarmed_combat_misc: 		miscValues[26] + newLevels[26],
+			skill_unarmed_combat_tallies: 	tempTallies[26],
+			skill_utility_misc: 			miscValues[27] + newLevels[27],
+			skill_utility_tallies: 			tempTallies[27]
 		});
 		//Update associated values
 		update_skills();
-	
 	});
 }
 	
@@ -2204,8 +1990,13 @@ var update_custom_skills=function(){
 		var currentMod = Math.max(Math.floor(currentScore/10),1);
 		
 		//Compute tally change and bonus, recalculate current values
-		while(remainingTallies-currentMod >=0 && remainingTallies!=0){
-			remainingTallies -= currentMod;
+		while(Math.abs(remainingTallies)-Math.floor(currentMod/2) >=0 && remainingTallies!=0){
+			if(remainingTallies<0){
+				remainingTallies -= Math.floor(currentMod/2);
+			}
+			else{
+				remainingTallies += Math.floor(currentMod/2);
+			}
 			miscBonus++;
 			currentScore = baseBonus + attrBonus + miscBonus;
 			currentMod = Math.max(Math.floor(currentScore/10),1);
